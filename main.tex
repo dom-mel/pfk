@@ -1,0 +1,67 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage[ngerman]{babel}
+\usepackage{biblatex}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{subfigure}
+\usepackage{array}
+\usepackage{booktabs}
+\makeatletter
+\renewcommand\@ptsize{13}
+\makeatother
+\usepackage{extsizes}
+\setcounter{secnumdepth}{-1} 
+\usepackage{hyperref}
+\usepackage{nameref}
+\usepackage{minted}
+\makeatletter
+\renewcommand\paragraph{%
+   \@startsection{paragraph}{4}{0mm}%
+      {-\baselineskip}%
+      {.5\baselineskip}%
+      {\normalfont\normalsize\bfseries}}
+\makeatother
+\usemintedstyle{friendly}
+\bibliography{bibliography}
+\title{Semesterarbeit im Fach Programmieren fortgeschrittene Konzepte}
+\author{Dominik Eckelmann, Matr.-Nr.: 785856}
+\date{\today}
+
+\begin{document}
+
+\sloppy
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{beuth.eps}
+	\maketitle
+\end{figure}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Einleitung}
+
+
+
+\newpage
+\appendix
+
+\addcontentsline{toc}{section}{Literatur}
+\nocite{*}
+\printbibliography
+
+\newpage
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+\listoffigures
+
+\newpage
+\addcontentsline{toc}{section}{Quellcodeverzeichnis}
+\renewcommand\listoflistingscaption{Quellcodeverzeichnis}
+\listoflistings
+
+\end{document}
