@@ -1,0 +1,3 @@
+To compile this on ubuntu u will need:
+  aptitude install texlive-full python-pygments biblatex
+
