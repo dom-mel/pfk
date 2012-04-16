@@ -31,12 +31,37 @@ Kodiert und die Bildschirme waren nur 80 Zeichen breit.
 
 Durch technische Entwicklungen wie z.B. das Internet, größere Bildschirme und
 immer leistungsfähigere Computer. Mitlerweile gibt es für die meisten Sprachen
-eine sehr gute Toolunterstützung für den Programmierer. Moderne IDEs gehen 
-mitlerweile über Syntaxhighlighting hinaus. Funktionen wie automatische Code
+eine sehr gute Toolunterstützung für den Programmierer. Moderne IDEs gehen
+ itlerweile über Syntaxhighlighting hinaus. Funktionen wie automatische Code
 Vervollständigung gehören mitlerweile zum Standard.
 
 Das Internet bietet dem Entwickler eine schnelle Möglichkeit nach Lösungen und
 ansätzen für Probleme oder einfach der entsprechenden Dokumentation zu suchen.
+
+\subsection{Programmarten}
+
+Die vielzahl von verschiedenen Programmen lassen sich im Kontext dieser Arbeit in
+drei Kategorien einordnen.
+
+Als erstes existieren kleine Programme oder Skripte, die für den einmaligen
+Gebrauch bestimmt sind. Eine einmalige Migration von daten in ein bestehendes
+oder neues System gehört zum Beispiel dazu. Diese Programme haben nur einen
+geringen (Quellcode-)Umfang und sind daher einfach zu überschauen.
+Da sie auch nur einmalig angewand werden ist der Author zugleich auch der
+einzige Leser.
+
+Zur zweiten Kategorie gehören Programme aus der Lehre. Diese haben meist eine
+deutlich höhere Dichte an Kommentaren als es für einen Quellcode der anderen
+beiden Kategorien der fall ist. Für eine andere Art von Quelltext wäre diese
+vielzahl von Kommentaren sogar hinderlich, da sie im extremfall die funktionsweiße
+der nächsten Zeile erklärt.
+
+Die dritte Kategorie sind all die Anwendungen die eine längere Zeit im Einsatz sind.
+Sie werden häufig nicht von einem Entwickler erstellt sondern von einem ganzen Team.
+Dieses führt weiterentwicklungen durch und wartet die Software.
+Diese ist die Kategorie an die sich diese Arbeit vor allem richtet.
+Hier wird der Quelltext von mehreren Entwicklern gelesen und muss von ihnen in
+angemessener Zeit verstanden werden.
 
 \subsection{Formatierung von Quelltexten}
 
@@ -166,13 +191,6 @@ und so verstöße gegen eine Codeing Convention automatiesiert zu finden.
 Ein Beispiel für ein solches Tool ist Checkstyle\footnote{siehe auch: http://checkstyle.sourceforge.net/}.
 Es ist auf Java Quellcode spezialisiert und bietet eine Beispielkonfiguration für
 die Java Codeing Conventions.
-
-\subsection{Programmarten}
-
-
- - kleine "versuche" / lehre
- - programme für einmalige benutzung
- - (wachsende) anwendungen 
 
 \subsection{Schlechter Quellcode}
 
