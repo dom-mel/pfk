@@ -99,6 +99,55 @@ int main(void) {
     \label{grundlagen:helloc}
 \end{listing}
 
+Ein kontrovers diskutiertes Thema ist mitunter die Positionierung von öffnenden
+und schließenden Blockklammern.
+In Listing \ref{grundlagen:blockklammern} sind die drei gängigsten
+arten der Positionierung zu sehen. Obwohl sie alle verschieden sind verfolgen
+sie dennoch das selbe Ziel, die Struktur durch Einrückungen zu verdeutlichen.
+
+\begin{listing}[H]
+        \begin{minipage}{0.35\textwidth}
+            \centering
+	    \begin{minted}{c}
+if (expression) {
+    statements
+}
+	    \end{minted}
+        \end{minipage}
+        \begin{minipage}{0.3\textwidth}
+            \centering
+	    \begin{minted}{c}
+if (expression)
+{
+    statements
+}
+	    \end{minted}
+        \end{minipage}
+        \begin{minipage}{0.3\textwidth}
+            \centering
+	    \begin{minted}{c}
+if (expression)
+	{
+    statements
+	}
+	    \end{minted}
+        \end{minipage}
+    \caption{Positionierung von Blockklammern aus \cite[S. 8]{Green}}
+    \label{grundlagen:blockklammern}
+\end{listing}
+
+Aufgrund des Vergleiches, wie sehr Quellcode schreiben mit dem früheren Schreibmaschinenschreiben übereinstimmt, von Kamp\cite{Kamp} kommt man zu der Erkenntnis das Quelltext immer in einer Monospace Schriftart geschrieben werden sollte\cite[S. 2]{Green}. Damit lassen sich dann Programme in Tabellenform schreiben. Ein Beispiel ist in Listing \ref{grundlagen:tablecode} zu sehen.
+
+\begin{listing}[H]
+    \begin{minted}{java}
+int color      = 255;
+long width     = 400320;
+String caption = "Beschreibender text";
+    \end{minted}
+    \caption{Tabellendarstellung in Quellcode}
+    \label{grundlagen:tablecode}
+\end{listing}
+
 Durch Whitespaces lässt sich der Grauwert des Quellcodes beeinflussen.
 Der Grauwert ist u.a. ausschlaggebend für den Gesamteindruck und die Lesbarkeit
 eines Textes \cite{Beinert}.
@@ -111,6 +160,9 @@ Je nach Programmiersprache stehen hier unterschiedliche Zeichen zur Verfügung.
 Die Buchstaben A-Z sowie die Ziffern 0-9 gehören fast immer dazu, sowie die
 Sonderzeichen \enquote{-} und \enquote{\_}. Bei modernen Sprachen die UTF-8
 zum Codieren verwenden ist es teilweise auch möglich Umlaute zu verwenden.
+Dabei sollte aber bedacht werden, dass ein Programmierer mit einer anderen
+Tastatur die verwendeten Umlaute nicht Tippen kann. Auf einer \enquote{QWERTY}-Tastatur
+finden sich z. B. keine deutschen Umlaute.
 
 Für den Computer sind die Namen egal. So genügt es z.B. alle Variablen \enquote{a1},
 \enquote{a2}, ..., \enquote{aN} zu benennen. Der Entwickler kann die Namen jedoch interprettieren und
@@ -154,6 +206,48 @@ public List<int[]> getFlaggedCells() {
 \end{listing}
 
 Anhand der Namen kann der Leser nun erkennen das die Methode markierte Felder eines Spielfeldes zurückgibt.
+Die Länge eines Namens sollte zudem kohärent zu seiner Wichtigkeit sein.
+Ein unverhältnissmäßig langer Name wäre \enquote{IterationCounter} für eine Zählvariable einer FOR-Schleife.
+Die Bedeutung muss immer in Abhängigkeit vom Kontext klar erkennbar sein.
+
+\cite[S. 4]{Green} schlägt folgende Konvention für die Namensgebung vor:
+\begin{itemize}
+	\item Variablen- und Klassennamen sollten Nomen bzw. Nomen Phrasen sein
+	\item Klassennamen sind zusammenfassende Nomen (Book)
+	\item Variablennamen sind exakte beschreibende Nomen (BookingNumber)
+	\item Prozeduren sollten Verben bzw. Verbphrasen sein (calculateCost)
+	\item Wertliefernde Methoden sollten Nomen Phrasen sein (getName) 
+	\item Boolesche werte sollten Adjektive sein
+	\item Für zusammengesetzte Namen sollte man sich möglichst an die englische Sprache halten
+	\item Namen sollten aussprechbar sein
+\end{itemize}
+
+Anhand solcher Konventionen ist es für den Entwickler möglich die Bedeutung von Namen mit möglichst wenig Kontext zu erfassen.
+\cite{reed} betrachtet hierzu die Java Coding Conventions. Die Zeilen aus Listing \ref{grundlagen:reed1} und
+Listing \ref{grundlagen:reed2} sind beinahe identisch. 
+
+\begin{listing}
+    \begin{minted}{java}
+Foo.bar();
+    \end{minted}
+    \caption{Statischer Methodenaufruf in Java aus \cite[S. 182]{reed}}
+    \label{grundlagen:reed1}
+\end{listing}
+
+\begin{listing}
+    \begin{minted}{java}
+foo.bar();
+    \end{minted}
+    \caption{Methodenaufruf in Java aus \cite[S. 182]{reed}}
+    \label{grundlagen:reed2}
+\end{listing}
+
+Der Entwickler kann die Funktionsweise nicht unterscheiden.
+Wenn man ihm aber mitteilt das sich hier an die Java Coding Conventions gehalten wurde kann er gleich erkennen,
+dass Listing \ref{grundlagen:reed1} ein statischer Methodenaufruf ist und
+Listing \ref{grundlagen:reed2} eine Objektmethode aufruft.
+
+
 
 \subsection{Coding Conventions}
 
