@@ -155,57 +155,100 @@ public List<int[]> getFlaggedCells() {
 
 Anhand der Namen kann der Leser nun erkennen das die Methode markierte Felder eines Spielfeldes zurückgibt.
 
-\subsection{Codeing Conventions}
+\subsection{Coding Conventions}
 
 Um eine einheitliche Formatierung des Quelltextes zu erreichen werden häufig
 Vorgaben für die Formatierung des Codes bestimmt. Diese Vorgaben werden
-\enquote{Codeing Conventions} genannt. Meist behandeln sie die Einrückung von Quelltexten,
+\enquote{Coding Conventions} genannt. Meist behandeln sie die Einrückung von Quelltexten,
 Positionierung der Block-klammern, schreibweiße von Variablen und Methoden aber auch
 welche Zeichencodierung für den Quelltext verwendet werden soll.
 
-Beispiele für Codeing Conventions sind die GNU Coding Standards \cite{GNUCode},
+Beispiele für Coding Conventions sind die GNU Coding Standards \cite{GNUCode},
 der Linux Kernel Coding Style\cite{KernelCode} oder die Java Code Conventions\cite{javacode}.
 
-Der Inhalt und Umfang von Codeing Conventions kann sich dabei stark voneinander
+Der Inhalt und Umfang von Coding Conventions kann sich dabei stark voneinander
 unterscheiden. Der Linux Kernel Coding Style ist z.B. lediglich 4 Seiten lang,
 während die GNU Coding Standards 86 Seiten umfassen.
 
-Codeing Conventions können für verschiedene Bereiche eingesetzt werden. Sie können für
+Coding Conventions können für verschiedene Bereiche eingesetzt werden. Sie können für
 ein Projekt erstellt werden wie der Linux Kernel Coding Style oder gleich für eine
 ganze Programmiersprache wie die Java Code Conventions.
 
-Eine Codeing Convention soll dafür sorgen das ein Quelltext einfach lesbar ist
+Eine Coding Convention soll dafür sorgen das ein Quelltext einfach lesbar ist
 und er von anderen Entwicklern schnell verstanden und verändert werden kann.
 
-\subsubsection{Tools zum prüfen auf Codeing Conventions}
+\subsubsection{Tools zum prüfen auf Coding Conventions}
 
 Wenn man einen Syntaxfehler in seinem Programm hat wird
 der Kompiler beim kompilieren eine Fehlermeldung ausgeben.
 Auf diese Weiße lässt sich feststellen ob der Entwickler
 die Syntaktischen regeln der Programmiersprache befolgt hat.
 
-Der Kompiler findet aber keine verstöße gegen eine bestehende Codeing Convention.
+Der Kompiler findet aber keine verstöße gegen eine bestehende Coding Convention.
 Hierfür gibt es Tools, die den Quellcode anhand von definierten Regeln analysieren
-und so verstöße gegen eine Codeing Convention automatiesiert zu finden.
+und so verstöße gegen eine Coding Convention automatiesiert zu finden.
 
 Ein Beispiel für ein solches Tool ist Checkstyle\footnote{siehe auch: http://checkstyle.sourceforge.net/}.
 Es ist auf Java Quellcode spezialisiert und bietet eine Beispielkonfiguration für
-die Java Codeing Conventions.
+die Java Coding Conventions.
 
 \subsection{Schlechter Quellcode}
 
- - auswirkungen
-   - produktivität
- - bugs / side effects
- - komplex / schwer zu verstehen
- - lösung -> redesign?
+
+Wir alle hatten schon mit ihm zu kämpfen, schlechter Quellcode. Robert C. Martin beschreibt in seinem
+Buch \cite[S. 27f.]{Martin} die Auswirkungen von schlechtem Code wie folgt: Schlechter Code ist schwer
+zu lesen und zu verstehen. Er ist schlecht strukturiert und leitet den Leser im schlimmsten Falle in die Irre.
+Die Auswirkung ist eine sinkende Produktivität, zu sehen in Abbildung \ref{grundlagen:produktivitaet}.
+Dieses hat verschiedene Gründe. Der Code ist durch seine schlechte Verständlichkeit schwer zu warten und erweitern.
+Zudem kommt es so leichter zu Bugs. Der Code begünstigt zudem möglicherweise nicht vorhersehbare Seiteneffekte.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{poduktivitaet.jpg}
+	\caption{Produktivität über Zeit aus \cite[S. 29]{Martin}}
+	\label{grundlagen:produktivitaet}
+\end{figure}
+
+Ein Entwickler der an einem solchen Code arbeitet ist leicht versucht selbst schlechten Quelltext zu schreiben,
+da dies vermeintlich schneller geht. Das Resultat, der Code wird immer schwerer zu warten und die Produktivität sinkt weiter.
+Eine Neuentwicklung der Software kommt aus der Sicht von \cite[S. 29f.]{Martin} nicht in Frage.
+Die neue Software muss neben der Weiterentwicklung der alten Entwickelt werden und trotzdem auf denselben Stand kommen.
+Dies ist bei großen Softwareprojekten meistens nicht möglich, da eine solche Lösung häufig zu teuer ist.
+Als mögliche Lösung führt er an das jeder Entwickler versuchen sollten den Code an den er gearbeitet hat so sauber wie möglich zu hinterlassen.
 
 \subsection{Guter Quellcode}
 
- - erfahrungssache
- - codeconventions tragen bei
- - struktur
+Guten Quellcode zu schreiben ist etwas womit sich schon viele Entwickler beschäftigt haben\cite{Martin, Green, Spinellis, reed}.
+\cite[S. 32f.]{Martin} hat sich mit den Aussagen von verschiedenen erfahrenen Entwicklern zu sauberem Code auseinandergesetzt.
+Er kommt zu folgenden Punkten für guten Code:
 
- - Knuth
- - clean code
+\begin{itemize}
+\item Testbar
+\item Geradlinig, man erkennt den Zweck
+\item Verständlich, einfach zu durchschauen, erwartungskonform
+\item Keine versteckten Absichten
+\item Gute Namen
+\item Minimale Abhängigkeiten
+\item Keine Redundanzen
+\item Keine Fehler/Exceptions verstecken
+\end{itemize}
 
+Diese Punkte ähneln sehr stark den Design Ideen der Programmiersprache Python\cite{Peters}.
+Wie zu erkennen ist findet sich guter Quelltext auf verschiedenen Ebenen wieder.
+Auf unterster Ebene im Quelltext bis hin zum gesamtdesign der Software.
+Häufig gehört allerdings ein hohes Maß an Erfahrung dazu einen guten Quelltext zu schreiben.
+
+\subsection{Art and Science}
+
+In vielen Artikeln zu dem Thema finden man die Wörter \enquote{Art} und \enquote{Science}. So z.B.
+\enquote{Coding Guidlines: Finding the Art in Science} von \cite{Green} oder \enquote{Science and Art} von \cite[669]{Knuth}.
+Damit spielt man darauf an das manche Quelltexte sich so schön lesen und verstehen lassen das sie Kunst sind.
+\cite[S. 669]{Knuth} zeigt das nicht nur die Informatik Art und Science in dieser weiße benutzt.
+Er fand es auch in einem Buch über die Grundlagen der Photographie und in der Einleitung eines Wörterbuches\cite[S. 669]{Knuth}.
+Er zeigt zudem einen Wandel in der Verwendung des Wortes \enquote{Art}.
+Früher war es üblich von einem gut ausgeführten Handwerk als Kunst zu reden.
+Knuth zieht den Schluss das \enquote{Science} das Wissen ist und \enquote{Art} das angewandte wissen.
+In unserem Fall ist das Programmieren das Handwerk und guter Quellcode die Kunst.
+Weiterhin hat jeder Programmierer seinen eigenen Stil einen Quellcode zu schreiben.
+Selbst Coding Conventions lassen dem Entwickler genug Freiraum für einen eigenen Schreibstil,
+da es nicht möglich ist alles mit ihnen zu definieren.
