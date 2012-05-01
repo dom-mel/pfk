@@ -1,65 +1,65 @@
 
 \section{Fachliche Grundlagen}
 
-Dieses Kapitel beschäftigt sich vor allem mit Quellcode. Wer schreibt ihn, wie wird er erstellt, wie sieht er aus, welche Entwicklungen es dabei gegeben hat. Was gibt es für ansetze um einen langen Quellcode einheitlich aussehen zu lassen und vor allem wodurch zeichnet sich guter Quellcode aus und was sind die Auswirkungen von schlechtem. Zu guter letzt werfen wir noch einen Blick auf die Wörter \enquote{Art} und \enquote{Science}, die in diesem Zusammenhang oft verwendet werden.
+Dieses Kapitel beschäftigt sich vor allem mit Quelltext. Wer schreibt ihn, wie wird er erstellt, wie sieht er aus, welche Entwicklungen hat es dabei gegeben. Was gibt es für Ansätze um einen langen Quelltext einheitlich aussehen zu lassen und vor allem wodurch zeichnet sich guter Quelltext aus und was sind die Auswirkungen von schlechtem. Zu guter Letzt werfen wir noch einen Blick auf die Wörter \enquote{Art} und \enquote{Science}, die in diesem Zusammenhang oft verwendet werden.
 
-\subsection{Quellcode und der Autor}
+\subsection{Quelltext und der Autor}
 
 Quelltext ist eine für den Computer verständliche Form
 eines Arbeitsablaufes. Er kann durch einen Compiler in Maschinencode übersetzt werden.
-In den meisten Fällen ist er in Textform verfasst und für einen Menschen lesbar.
+In den meisten Fällen ist er in Textform verfasst und für den Menschen lesbar.
 
 In einem Softwareprojekt ist er die detaillierteste Spezifikation der zu erstellenden
-Software und all ihrer Komponenten. Alles wir in ihm so eindeutig beschrieben
-das ein Computer ihn umsetzen kann. Das aus der modellgetriebenen Entwicklung
-bekannte UML hat das Ziel den Quellcode durch definierte Modelle zu ersetzen.
-Diese sind aus heutiger Sicht aber noch nicht als Quellcode Ersatz geeignet,
+Software und all ihrer Komponenten. Alles wird in ihm so eindeutig beschrieben,
+dass ein Computer ihn umsetzen kann. Das aus der modellgetriebenen Entwicklung
+bekannte UML hat das Ziel den Quelltext durch definierte Modelle zu ersetzen.
+Diese sind aus heutiger Sicht aber noch nicht als Quelltext Ersatz geeignet,
 da die UML nicht genau genug ist und in ihr bestimmte Implementierungsdetails verloren gehen.
  \cite[S. 26]{Martin}
 
-Der Autor dieser genauesten Spezifikation, dem Quelltextes, ist der Programmierer.
+Der Autor dieser genauesten Spezifikation, des Quelltextes, ist der Programmierer.
 
 \subsection{Wandel in der Entwicklung von Quelltexten}
 
 
 In den Anfängen des Computerzeitalters war der Programmierer meistens der einzige
-Leser seiner Programme. Hauptaugenmerk lag auf der Funktion es Programmes
+Leser seiner Programme. Hauptaugenmerk lag auf der Funktion des Programmes
 und dem effizienten Umgang mit den Ressourcen, die zu dieser Zeit noch sehr knapp waren.
  Damals gab es noch keine Objekt-Orientierten-Sprachen. Zudem waren die Arbeitsumgebungen der Entwickler
 wesentlich bescheidener als in der heutigen Zeit. Quelltexte wurden im ASCII-Code
-Kodiert und es passten lediglich 80 Zeichen auf eine Bildschirmzeile.
+kodiert und es passten lediglich 80 Zeichen auf eine Bildschirmzeile.
 
 Durch die rasante technische Weiterentwicklungen ist ein Programmierer heutzutage keiner
-80 Zeichen Zeile mehr unterworfen. Auch muss nicht mehr auf jedes Bit speicherverbrauch
+80 Zeichen Zeile mehr unterworfen. Auch muss nicht mehr auf jedes Bit Speicherverbrauch
 optimiert werden. Die Werkzeuge zur Softwareentwicklung haben sich auch verbessert. So
 werden heutzutage leistungsfähige IDEs verwendet, deren Funktionsumfang weit über ein
 einfaches Syntaxhighlighting hinausgeht. Funktionen wie eine automatische Codevervollständigung
-gehören mittlerweile zum Standard. Zudem kommen unzählige, frei verfügbare Bibliotheken und Quellcodes
+gehören mittlerweile zum Standard. Zudem kommen unzählige, frei verfügbare Bibliotheken und Quelltexte
 für eine Vielzahl von Problemen, die über das Internet bezogen werden können. Das Internet bietet zudem
-eine solide Quelle für die Recherche nach möglichen Lösungen und Problemlösungsansetzen, sowie
+eine solide Quelle für die Recherche nach möglichen Lösungen und Problemlösungsansätzen, sowie
 umfangreicher Dokumentation zu Programmiersprachen, Programmierwerkzeugen und eingesetzten Bibliotheken.
 
 \subsection{Programmarten}
 
-Es gibt viele verschiedene Programme, die sich auf unterschiedliche weiße kategorisieren lassen. Im Kontext dieser Arbeit lassen sie sich in drei Kategorien einordnen.
+Es gibt viele verschiedene Programme, die sich auf unterschiedliche Weise kategorisieren lassen. Im Kontext dieser Arbeit lassen sie sich in drei Kategorien einordnen.
 
 Zur ersten zählen kleine Programme bzw. Skripte, die für den einmaligen
 Gebrauch bestimmt sind. Eine einmalige Migration von Daten, in ein bestehendes
 oder neues System, fallen in diese Kategorie. Die Programme haben nur einen
-geringen (Quellcode-)Umfang und lassen sich von daher schnell überschauen. Sie weisen zudem eine geringe Komplexität auf. Da sie auch nur einmalig angewandt werden ist der Autor zugleich auch der einzige Leser.
+geringen (Quelltext-)Umfang und lassen sich von daher schnell überschauen. Sie weisen zudem eine geringe Komplexität auf. Da sie auch nur einmalig angewandt werden ist der Autor zugleich auch der einzige Leser.
 
-Zur zweiten Kategorie gehören Programme aus der Lehre. Diese haben meist eine
-deutlich höhere Dichte an Kommentaren als es für einen Quellcode der anderen
-beiden Kategorien der Fall ist. Im Extremfall gibt es hier mehr Kommentarzeilen als eigentliche Zeilen Quellcode.  Sie dienen häufig dazu jede Zeile des Quellcodes direkt zu erklären.
+Zur zweiten Kategorie gehören Programme aus der Lehre. Es handelt sich hier um Programme die hauptsächlich der Veranschaulichung dienen. Diese haben meist eine
+deutlich höhere Dichte an Kommentaren als es für einen Quelltext der anderen
+beiden Kategorien der Fall ist. Im Extremfall gibt es hier mehr Kommentarzeilen als eigentliche Zeilen Quelltext.  Sie dienen häufig dazu jede Zeile des Quelltextes direkt zu erklären.
 
 Die dritte Kategorie beherbergt Anwendungen die eine längere Zeit im Einsatz sind.
-Sie werden nicht von einem einzelnen Entwickler erstellt sondern von einem ganzen Team. Dazu gehört auch eine gewisse Fluktuation im Team. Die Entwickler führen Weiterentwicklungen durch und warten die Software. Die Arbeit richtet sich vor allem an diese Kategorie von Software, da der Quelltext von mehreren Entwicklern gelesen und 
+Sie werden nicht von einem einzelnen Entwickler erstellt sondern von einem ganzen Team. Dazu gehört auch eine gewisse Fluktuation im Team. Die Entwickler führen Weiterentwicklungen durch und warten die Software. Die Arbeit richtet sich vor allem an die dritte Kategorie von Software, da der Quelltext von mehreren Entwicklern gelesen und 
 verstanden werden.
 
 \subsection{Formatierung von Quelltexten}
 
 
-Die Formatierung eines Quellcodes mit korrekter Syntax wird durch
+Die Formatierung eines Quelltextes mit korrekter Syntax wird durch
 sogenannte Whitespaces (nicht sichtbare Zeichen) vorgenommen.
 Dazu gehören Tabulatoren, Leerzeichen und Zeilenumbrüche. Sie dienen dazu den Quelltext für den Menschen lesbarer zu machen.
 
@@ -72,8 +72,8 @@ int main(void){printf("Hello World!");return 0;}
     \label{grundlagen:hellocminimal}
 \end{listing}
 
-Für einen Compiler machen Whitespaces häufig keinen Unterschied, ausnahmen wie die Programmiersprache \enquote{Whitespace} bestätigen die Regel.\footnote{siehe auch http://compsoc.dur.ac.uk/whitespace/}
-Es ist egal ob der Quellcode viele Whitespaces enthält, wie in Listing \ref{grundlagen:helloc}), oder nur minimale, wie in Listing \ref{grundlagen:hellocminimal}.
+Für einen Compiler machen Whitespaces häufig keinen Unterschied, Ausnahmen wie die Programmiersprache \enquote{Whitespace} bestätigen die Regel.\footnote{siehe auch http://compsoc.dur.ac.uk/whitespace/}
+Es ist egal ob der Quelltext viele Whitespaces enthält, wie in Listing \ref{grundlagen:helloc}), oder nur minimale, wie in Listing \ref{grundlagen:hellocminimal}.
 Der Zeilenumbruch in Zeile 1 im Listing \ref{grundlagen:helloc} ist hier Teil der Syntax.
 
 Für den Entwickler tragen die Whitespaces zur Lesbarkeit des Programmes bei. Listing \ref{grundlagen:helloc} ist für einen Menschen besser verständlich, da sich mit den Whitespaces die Struktur abbilden lässt. Der Anfang und das Ende der \texttt{main}-Methode sind so gut zu erkennen.
@@ -94,7 +94,7 @@ int main(void) {
 Ein kontrovers diskutiertes Thema ist die Positionierung von öffnenden
 und schließenden Blockklammern.
 In Listing \ref{grundlagen:blockklammern} sind die drei gängigsten
-arten der Positionierung zu sehen. Obwohl sie alle verschieden sind verfolgen
+Arten der Positionierung zu sehen. Obwohl sie alle verschieden sind, verfolgen
 sie dennoch dasselbe Ziel, die Struktur durch Einrückungen zu verdeutlichen.
 
 \begin{listing}[H]
@@ -128,7 +128,7 @@ if (expression)
     \label{grundlagen:blockklammern}
 \end{listing}
 
-Aufgrund des Vergleiches, wie sehr Quellcode schreiben mit dem früheren Schreibmaschinenschreiben übereinstimmt, von Kamp\cite{Kamp} kommt man zu der Erkenntnis das Quelltext immer in einer Monospace Schriftart geschrieben werden sollte\cite[S. 2]{Green}. Dadurch funktioniert zum einen die Einrückung und zum anderen lassen sich damit Programme in Tabellenform schreiben. Ein Beispiel ist in Listing \ref{grundlagen:tablecode} zu sehen.
+Aufgrund des Vergleiches, wie sehr Quelltext schreiben mit dem früheren Schreibmaschinenschreiben übereinstimmt, von Kamp\cite{Kamp} kommt man zu der Erkenntnis, dass Quelltext immer in einer Monospace Schriftart geschrieben werden sollte\cite[S. 2]{Green}. Dadurch funktioniert zum einen die Einrückung und zum anderen lassen sich damit Programme in Tabellenform schreiben. Ein Beispiel ist in Listing \ref{grundlagen:tablecode} zu sehen.
 
 \begin{listing}[H]
     \begin{minted}{java}
@@ -136,28 +136,28 @@ int color      = 255;
 long width     = 400320;
 String caption = "Beschreibender text";
     \end{minted}
-    \caption{Tabellendarstellung in Quellcode}
+    \caption{Tabellendarstellung in Quelltext}
     \label{grundlagen:tablecode}
 \end{listing}
 
-Das hinzufügen von Whitespaces um die Lesbarkeit eines Textes zu verbessern, ist in der Typographie nichts Neues. Deren Repertoire reicht weit über Zeilenumbrüche und Leerzeichen hinaus. Unter anderem gibt es in der Typographie den Grauwert. Der Grauwert ist u.a. ausschlaggebend für den Gesamteindruck und die Lesbarkeit
+Das Hinzufügen von Whitespaces um die Lesbarkeit eines Textes zu verbessern, ist in der Typographie nichts Neues. Deren Repertoire reicht weit über Zeilenumbrüche und Leerzeichen hinaus. Unter anderem gibt es in der Typographie den Grauwert. Der Grauwert ist u.a. ausschlaggebend für den Gesamteindruck und die Lesbarkeit
 eines Textes. Er beschreibt das Verhältnis zwischen den schwarzen Anteilen, der Schrift, und den Weißen. Im Allgemeinen ist bei einem Quelltext der Grauwert höher als bei einem Buch.  \cite{Beinert}
 
 
 \subsection{Namensgebung}
 
-Beim erstellen von Quelltext gibt es viele Vorgaben, bei denen der Autor nicht von den Vorgaben der Programmiersprache abweichen darf, wie die Syntax der Sprache.
-Er hat aber auch an verschiedenen Stellen die Möglichkeit kreativ zu werden. So muss er selbst die Struktur seines Programmes aufbauen und Elemente benennen.
-Dazu gehören z.B. Variablen, Funktionen, Methoden, Klassen, Dateien, Namespaces...
+Beim Erstellen von Quelltext gibt es viele Vorgaben, bei denen der Autor nicht von den Vorgaben der Programmiersprache abweichen darf, wie die Syntax der Sprache.
+Er hat aber auch an verschiedenen Stellen die Möglichkeit kreativ zu werden. So kann er selbst die Struktur seines Programmes aufbauen und Elemente benennen.
+Dazu gehören z.B. Variablen, Funktionen, Methoden, Klassen, Dateien oder Namespaces.
 Je nach Programmiersprache stehen hier unterschiedliche Zeichen zur Verfügung.
 Die Buchstaben \texttt{A-Z} sowie die Ziffern \texttt{0-9} gehören fast immer dazu, sowie die
-Sonderzeichen \texttt{-} und \texttt{\_}. Bei modernen Sprachen die UTF-8
+Sonderzeichen \enquote{\texttt{-}} und \enquote{\texttt{\_}}. Bei modernen Sprachen die UTF-8
 zum Codieren des Quelltextes verwenden ist es teilweise auch möglich Umlaute zu verwenden.
 
 Dabei sollte aber bedacht werden, dass ein Programmierer mit einer anderen
 Tastatur die verwendeten Umlaute nicht Tippen kann. Auf einer \enquote{QWERTY}-Tastatur finden sich z. B. keine deutschen Umlaute.
 
-Für den Compiler sind die Namen egal. So genügt es alle Variablen \texttt{a1},
+Für den Compiler sind die Namen nicht von Bedeutung. So genügt es, alle Variablen \texttt{a1},
 \texttt{a2}, ..., \texttt{aN} zu benennen. Der Entwickler jedoch kann versuchen anhand der  Variablennamen deren Bedeutung zu  interpretieren.
 
 Das Beispiel aus \cite[S. 46-47]{Martin} zeigt die Auswirkungen von Variablennamen auf den Leser. Listing \ref{grundlagen:namingbad} und Listing \ref{grundlagen:naminggood} erledigen dieselbe Aufgabe. Die Syntax ist identisch, lediglich die Namen sind verändert.
@@ -172,12 +172,12 @@ public List<int[]> getThem() {
     return list1;
 }
     \end{minted}
-    \caption{1. Beispiel zu Codenamen aus \cite[S. 46]{Martin}}
+    \caption{1. Beispiel zu Variablennamen aus \cite[S. 46]{Martin}}
     \label{grundlagen:namingbad}
 \end{listing}
 
-Der Quellcode in Listing \ref{grundlagen:namingbad} ist zwar gut lesbar, auch wie er funktioniert ist klar. Was jedoch verborgen bleibt ist wozu dies geschieht. 
-Ändern wir die Variablennamen zu denen in Listing \ref{grundlagen:naminggood} kann man erahnen wozu der Quellcode entwickelt wurde.
+Der Quelltext in Listing \ref{grundlagen:namingbad} ist zwar gut lesbar, auch wie er funktioniert ist klar. Was jedoch verborgen bleibt ist, wozu dies geschieht. 
+Ändern wir die Variablennamen zu denen in Listing \ref{grundlagen:naminggood} kann man erahnen wozu der Quelltext entwickelt wurde.
 
 \begin{listing}
     \begin{minted}{java}
@@ -189,13 +189,13 @@ public List<int[]> getFlaggedCells() {
     return flaggedCells;
 }
     \end{minted}
-    \caption{2. Beispiel zu Codenamen aus \cite[S. 47]{Martin}}
+    \caption{2. Beispiel zu Variablennamen aus \cite[S. 47]{Martin}}
     \label{grundlagen:naminggood}
 \end{listing}
 
 Anhand der geänderten Namen kann der Leser nun erkennen, dass die Methode markierte Felder eines Spielfeldes zurückgibt.
 
-Neben bedeutungsvollen Namen, hilft ein konsistentes Schema zur namensvergabe dem Leser die Bedeutung der Namen zu erschließen. 
+Neben eindeutigen Namen hilft ein konsistentes Schema zur namensvergabe dem Leser die Bedeutung der Namen zu erschließen. 
 
 \cite[S. 4]{Green} schlägt folgende Konvention für die Namensgebung vor:
 \begin{itemize}
@@ -204,7 +204,7 @@ Neben bedeutungsvollen Namen, hilft ein konsistentes Schema zur namensvergabe de
 	\item Variablennamen sind exakte beschreibende Nomen (\texttt{BookingNumber})
 	\item Prozeduren sollten Verben bzw. Verbphrasen sein (\texttt{CalculateCost})
 	\item Wertliefernde Methoden sollen Nomen Phrasen sein (\texttt{GetName}) 
-	\item Boolesche werte sollen Adjektive sein
+	\item Boolesche Werte sollen Adjektive sein
 	\item Für zusammengesetzte Namen sollte man sich an die englische Sprache halten
 	\item Namen sollten aussprechbar sein
 \end{itemize}
@@ -234,18 +234,18 @@ Wenn man ihm aber mitteilt, dass sich hier an die Java Coding Conventions gehalt
 dass Listing \ref{grundlagen:reed1} ein statischer Methodenaufruf ist und
 Listing \ref{grundlagen:reed2} eine Objektmethode aufruft.
 
-Zuletzt soll noch erwähnt sein das die Länge eines Namens kohärent zu seiner Wichtigkeit bzw. seines Gültigkeitsbereiches sein.
+Zuletzt soll noch erwähnt sein, dass die Länge eines Namens kohärent zu seiner Wichtigkeit bzw. seines Gültigkeitsbereiches sein sollte.
 Ein unverhältnismäßig langer Name wäre \texttt{IterationCounter} für die Zählvariable einer FOR-Schleife. Angemessen wäre hier ein einfacher Buchstabe wie \texttt{i}. Dieser beschreibt den Zweck der Variable zwar nicht gut, ist aber gängige Praxis beim Programmieren. Die Bedeutung muss immer in Abhängigkeit vom Kontext klar erkennbar sein.
 
 
 
 \subsection{Coding Conventions}
 
-Eine Einheitliche Formatierung und Namensgebung helfen dem Leser sich in einem Quelltext zu Recht zu finden. Da aber jeder Entwickler seine eigenen Vorlieben hat besteht die Gefahr, dass eine Software, die von mehreren Personen erstellt wurde unterschiedlichste Programmierstile aufweist. 
+Eine einheitliche Formatierung und Namensgebung helfen dem Leser sich in einem Quelltext zurecht zu finden. Da aber jeder Entwickler seine eigenen Vorlieben hat besteht die Gefahr, dass eine Software, die von mehreren Personen erstellt wurden unterschiedlichste Programmierstile aufweist. 
 
-Um einen einheitlichen Quelltextes zu erreichen werden häufig Vorgaben für die Formatierung des Codes festgelegt. Diese Vorgaben werden \enquote{Coding Conventions} genannt. Sie können die Einrückung von Quelltexten,
-Positionierung der Block-klammern, schreibweiße von Variablen und Methoden aber auch
-welche Zeichencodierung für den Quelltext verwendet werden soll. Sie sollen dem Entwickler eine Richtlinie beim Schreiben seines Quelltextes sein. Coding Conventions verfolgen das Ziel, dass sich verschiedene Entwickler schnell im Quelltext zurechtfinden können, auch wenn dieser von einem anderen Autor erstellt wurde.
+Um einen einheitlichen Quelltextes zu erreichen werden häufig Vorgaben für die Formatierung des Quelltextes festgelegt. Diese Vorgaben werden \enquote{Coding Conventions} genannt. Sie können die Einrückung von Quelltexten,
+Positionierung der Blockklammern, Schreibweise von Variablen und Methoden aber auch
+welche Zeichencodierung für den Quelltext verwendet werden soll bestimmen. Sie sollen dem Entwickler eine Richtlinie beim Schreiben seines Quelltextes sein. Coding Conventions verfolgen das Ziel, dass sich verschiedene Entwickler schnell im Quelltext zurechtfinden können, auch wenn dieser von einem anderen Autor erstellt wurde.
 
 Coding Conventions können für verschiedene Bereiche eingesetzt werden. Sie können für
 ein Projekt erstellt werden, als Richtlinie in einer Firma oder gleich für eine ganze Programmiersprache.
@@ -257,23 +257,23 @@ Der Inhalt und Umfang von Coding Conventions kann sich dabei stark voneinander
 unterscheiden. Der \enquote{Linux Kernel Coding Style} ist z.B. lediglich 4 Seiten lang,
 während die \enquote{GNU Coding Standards} 86 Seiten umfassen.
 
-\subsubsection{Tools zum prüfen auf Coding Conventions}
+\subsubsection{Tools zum Prüfen auf Coding Conventions}
 
 
-Mitunter kann es sehr aufwendig werden seinen Code im Hinblick auf eine Coding Convention zu überprüfen. Der Compiler überprüft bereits den Quellcode auf  syntaktische Fehler. Alles andere muss auf anderem Wege überprüft werden.
+Mitunter kann es sehr aufwendig werden, seinen Quelltext im Hinblick auf eine Coding Convention zu überprüfen. Der Compiler überprüft bereits den Quelltext auf  syntaktische Fehler. Alles andere muss auf anderem Wege überprüft werden.
 
-Dafür gibt es Tools, die den Quellcode anhand von definierten Regeln analysieren
-und so Verstöße automatisch zu finden. Ein Beispiel für ein solches Tool ist Checkstyle\footnote{siehe auch: http://checkstyle.sourceforge.net/}.
-Es ist auf Java Quellcode spezialisiert und bietet eine Beispielkonfiguration für
+Dafür gibt es Tools, die den Quelltext anhand von definierten Regeln analysieren
+und so Verstöße automatisch finden. Ein Beispiel für ein solches Tool ist Checkstyle\footnote{siehe auch: http://checkstyle.sourceforge.net/}.
+Es ist auf Java Quelltext spezialisiert und bietet eine Beispielkonfiguration für
 die Java Coding Conventions.
 
-Genauso können Metriken zur Analyse des Quellcodes angewandt werden. Um die Komplexität des Quellcodes zu bestimmen kann die McCabe-Metrik\cite{McCabe} angewandt werden.
+Genauso können Metriken zur Analyse des Quelltextes angewandt werden. Um die Komplexität des Quelltextes zu bestimmen kann die McCabe-Metrik\cite{McCabe} angewandt werden.
 
-\subsection{Schlechter Quellcode}
+\subsection{Schlechter Quelltext}
 
-Wir alle hatten schon mit ihm zu kämpfen, schlechter Quellcode. Robert C. Martin beschreibt in seinem Buch \cite[S. 27f.]{Martin}, die Auswirkungen von schlechtem Code, wie folgt: Schlechter Code ist schwer zu lesen und zu verstehen. Er ist schlecht strukturiert und leitet den Leser im schlimmsten Falle in die Irre.
+Jeder Programmierer hatten schon mit ihm zu kämpfen, schlechter Quelltext. Robert C. Martin beschreibt in seinem Buch \cite[S. 27f.]{Martin}, die Auswirkungen von schlechtem Quelltext, wie folgt: Schlechter Quelltext ist schwer zu lesen und zu verstehen. Er ist schlecht strukturiert und leitet den Leser im schlimmsten Falle in die Irre.
 Die Auswirkung ist eine sinkende Produktivität, zu sehen in Abbildung \ref{grundlagen:produktivitaet}.
-Das hat verschiedene Gründe. Durch die schlechte Verständlichkeit des Quellcodes benötigt ein Entwickler bei der Wartung und Erweiterung ein erhebliches Maß an Zeit um sich in dem Quellcode zurechtzufinden. Zudem kommt es so leichter zu Bugs, weil der Entwickler von falschen Tatsachen ausgeht, die ihm der Quellcode vorgaukelt. Die schlechte Architektur des Codes begünstigt zudem nicht vorhersehbare Seiteneffekte, die schlimmstenfalls erst im laufenden Betrieb der Software auftreten und auch nur schwer nachzuvollziehen sind.
+Das hat verschiedene Gründe. Durch die schlechte Verständlichkeit des Quelltextes benötigt ein Entwickler bei der Wartung und Erweiterung ein erhebliches Maß an Zeit um sich in dem Quelltext zurechtzufinden. Zudem kommt es so leichter zu Bugs, weil der Entwickler von falschen Tatsachen ausgeht, die ihm der Quelltext vorgaukelt. Die schlechte Architektur des Quelltextes begünstigt zudem nicht vorhersehbare Seiteneffekte, die schlimmstenfalls erst im laufenden Betrieb der Software auftreten und auch nur schwer nachzuvollziehen sind.
 
 \begin{figure}[H]
 	\centering
@@ -282,15 +282,15 @@ Das hat verschiedene Gründe. Durch die schlechte Verständlichkeit des Quellcod
 	\label{grundlagen:produktivitaet}
 \end{figure}
 
-Ein Entwickler der an einem solchen Code arbeitet ist leicht versucht selbst schlechten Quelltext zu schreiben, da dies vermeintlich schneller geht und der Code ohnehin schon nur schwer zu lesen ist. Daraus Resultiert, dass der Code wird immer unverständlicher wird und die Produktivität weiter sinkt.
-Als möglicher Ausweg kommt eine Neuentwicklung der Software, aus Sicht von \cite[S. 29f.]{Martin}, nicht in Frage.
-Er begründet dies damit, dass neue Software neben der Weiterentwicklung der alten Erstellt werden muss und trotzdem auf denselben Funktionsumfang der alten Lösung kommen. Dies ist bei großen Softwareprojekten meistens nicht möglich, da bereit sehr viel Entwicklungszeit in das alte System geflossen ist und es zu teuer ist einen sehr großen Quellcode neu zu entwickeln. Als mögliche Lösung führt er an das jeder Entwickler versuchen sollten den Code an den er gearbeitet hat sauberer als vorher zu hinterlassen. Er bezeichnet dies als Pfadfinderregel.
+Ein Entwickler der an einem solchen Quelltext arbeitet ist leicht versucht selbst schlechten Quelltext zu schreiben, da dies vermeintlich schneller geht und der Quelltext ohnehin schon nur schwer zu lesen ist. Daraus resultiert, dass der Quelltext immer unverständlicher wird und die Produktivität weiter sinkt.
+Als möglicher Ausweg kommt eine Neuentwicklung der Software aus Sicht von \cite[S. 29f.]{Martin}, nicht in Frage.
+Er begründet dies damit, dass neue Software neben der Weiterentwicklung der alten Erstellt werden muss und trotzdem auf denselben Funktionsumfang der alten Lösung kommen. Dies ist bei großen Softwareprojekten meistens nicht möglich, da bereit sehr viel Entwicklungszeit in das alte System geflossen ist und es zu teuer ist einen sehr großen Quelltext neu zu entwickeln. Als mögliche Lösung führt er an das jeder Entwickler versuchen sollten den Quelltext an den er gearbeitet hat sauberer als vorher zu hinterlassen. Er bezeichnet dies als Pfadfinderregel.
 
-\subsection{Guter Quellcode}
+\subsection{Guter Quelltext}
 
-Guten Quellcode zu schreiben ist etwas womit sich schon viele Entwickler beschäftigt haben\cite{Martin, Green, Spinellis, reed}.
-\cite[S. 32f.]{Martin} hat sich mit den Aussagen von verschiedenen erfahrenen Entwicklern zu sauberem Code auseinandergesetzt.
-Er kommt zu folgenden Punkten für guten Code:
+Guten Quelltext zu schreiben ist etwas womit sich schon viele Entwickler beschäftigt haben\cite{Martin, Green, Spinellis, reed}.
+\cite[S. 32f.]{Martin} hat sich mit den Aussagen von verschiedenen erfahrenen Entwicklern zu sauberem Quelltext auseinandergesetzt.
+Er kommt zu folgenden Punkten für guten Quelltext:
 
 \begin{itemize}
 \item Testbar
@@ -315,8 +315,8 @@ Damit spielt man darauf an das manche Quelltexte sich so schön lesen und verste
 Er zeigt zudem einen Wandel in der Verwendung des Wortes \enquote{Art}.
 Früher war es üblich von einem gut ausgeführten Handwerk als Kunst zu reden.
 Knuth zieht somit den Schluss, dass \enquote{Science} das Wissen ist und \enquote{Art} das angewandte wissen.
-In unserem Fall ist das Programmieren das Handwerk und guter Quellcode die Kunst.
-Weiterhin hat jeder Programmierer seinen eigenen Stil einen Quellcode zu schreiben.
+In unserem Fall ist das Programmieren das Handwerk und guter Quelltext die Kunst.
+Weiterhin hat jeder Programmierer seinen eigenen Stil einen Quelltext zu schreiben.
 Selbst Coding Conventions lassen dem Entwickler genug Freiraum für einen eigenen Schreibstil, da es nicht möglich ist alles mit ihnen zu definieren.
 
 
