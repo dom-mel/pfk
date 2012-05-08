@@ -1,0 +1,45 @@
+
+\section{Coding Guidelines: Finding the Art in Science}
+Das erste Paper, dass in dieser Arbeit behandelt wird, trägt den Titel \enquote{ Coding Guidelines: Finding the Art in Science, What separates good code from great code?} von Robert Green und Henry Ledgard\cite{Green}. Die Autoren versuchen eigene Regeln, für das entwickeln von Quelltext aufzustellen. Das Ziel ist es den Programmierer in die Lage zu versetzen, einen Quelltext zu schreiben der schnell und einfach von anderen Programmierern gelesen, verstanden und erweitert werden kann. Das schließt mit ein, dass sich der Entwickler, ohne Kenntnis des Systems, schnell im gesamten Quelltext zurechtfinden kann. Dies ist vor allem in großen, langlebigen Softwareprojekten von Nöten, da hier eine gewisse Fluktuation bei den Entwicklern nicht auszuschließen ist\ref[S. 12]{Green}.
+
+Beim erstellen der Regeln wird nicht auf bestimmte Entwicklungsumgebungen oder andere Tools Rücksicht genommen. Die Regeln sollen mit allen Editoren angewandt werden können.
+\subsection{Monospace and the ASCII}
+Als erstes wird bezug auf den Artikel von Kamp\cite{Kamp} genommen. Dieser stellte fest wie wenig sich das Aussehen von Quelltexten im Laufe der Zeit geändert hat und wie sehr es noch dem Schreiben mit einer Schreibmaschine ähnelt. Es wurden zwar viele nützliche Programme entwickelt die beim erstellen von Quelltexten helfen können, trotzdem ist er immer noch in Textform. Noch dazu wird immer eine Monospace Schriftart zur Darstellung verwendet. Dazu kommt noch das es kein klassischer Fließtext ist. Der verwendete Wortschatz ist stark eingeschränkt und es werden häufig mathematische Darstellungsformen gewählt \cite[S. 2]{Green}. Darum wir im Paper\cite{Green} vorgeschlagen für Quelltext eine tabellenartige Formatierung zu wählen um die Lesbarkeit zu erhöhen. Ein Beispiel hierfür ist in Listing \ref{paper1:table} zu sehen. Die \enquote{\texttt{case}}, sowie die \enquote{\texttt{break}} Anweisungen befinden sich in einer Spalte und die Aufrufe für die einzelnen Verzweigungspfade befinden sich in einer Spalte.
+
+\begin{listing}[H]
+    \begin{minted}{c}
+char c1;
+c1 = getChoice();
+switch(c1) {
+	case 'q': case 'Q': quit();                 break;
+	case 'e': case 'e': enterPerson(content);   break;
+	case 'd': case 'd': delPerson(content);     break;
+	case 's': case 's': sortByName();           break;
+	case 'l': case 'l': showAll();              break;
+	case 'f': case 'f': searchByName(content);  break;
+	case default: System.out.println(
+		"--Invalid Command!!\n");
+}
+    \end{minted}
+    \caption{Beispiel für tabellarische Darstellung von Quelltext aus \cite[S. 2]{Green}}
+    \label{paper1:table}
+\end{listing}
+
+
+
+\ref{grundlagen:namensgebung}
+
+\subsection{Naming}
+Als nächstes wenden Sich Robert Green und Henry Ledgard der Benennung von Elementen zu\cite[S. 3f.]{Green}. Die Benennung aller Elemente ist ein wichtiges belang bei der Entwicklung. Eine Sinnvolle Benennung hilft dem Leser eines Quelltextes sich in diesem zu Orientieren. Sie stellen hierzu die folgenden Regeln auf\cite[S. 4]{Green}:
+\begin{itemize}
+	\item Variablen- und Klassennamen sollen Nomen bzw. Nominalphrasen sein
+	\item Klassennamen sind zusammenfassende Nomen (\texttt{Book})
+	\item Variablennamen sind exakte beschreibende Nomen (\texttt{BookingNumber})
+	\item Prozeduren sollten Verben bzw. Verbphrasen sein (\texttt{CalculateCost})
+	\item Wertliefernde Methoden sollen Nomen Phrasen sein (\texttt{GetName}) 
+	\item Boolesche Werte sollen Adjektive sein
+	\item Für zusammengesetzte Namen sollte man sich an die englische Sprache halten
+	\item Namen sollten aussprechbar sein
+\end{itemize}
+
+Auf diese weiße soll dem Leser zu jeder zeit klar sein, was hinter einem Namen steht. 
