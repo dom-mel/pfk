@@ -45,11 +45,9 @@ Als nächstes wenden Sich Robert Green und Henry Ledgard der Benennung von Eleme
 Auf diese weiße soll dem Leser zu jeder zeit klar sein, ob eine Operation, eine Variable oder eine Klasse hinter einem Namen steht. Die Namen sollen in einfachem Englisch gehalten sein.
 Weiterhin sprechen sie an, dass das finden eines geeigneten Namen sehr schwierig sein kann. Ziel bei der Namensgebung soll sein, dass man aus ihnen die Konzepte der Software ablesen kann.
 
-
-\subsection{Kontextbasierte Namen}
-Bei der Namensgebung kann es sehr schnell dazu kommen, dass die Variablennamen lang werden. Um hier abhilfe zu schaffen soll der Kontext mit einbezogen werden, um die Namen kurz zu halten. In Listing \ref{paper1:contextbasednames} ist ein Beispiel mit zu langen namen zu sehen. Da sie zur Klasse \texttt{Circle} gehören, ist der \texttt{circle}-Prefix überflüssig. Die Variablen gehören klar zur \texttt{Circle}-Klasse.
+\subsection{Länge von Namen}
+Bei der Namensgebung kann es sehr schnell dazu kommen, dass die Variablennamen lang werden. Um Namen aber kurz und prägnant zu halten soll der Kontext mit einbezogen werden. In Listing \ref{paper1:contextbasednames} ist ein Beispiel mit zu langen Namen zu sehen. Da sie zur Klasse \texttt{Circle} gehören, ist der \texttt{Circle}-Präfix überflüssig. Die Variablen gehören klar zur \texttt{Circle}-Klasse.
 \cite[S. 4f.]{Green}
-
 \begin{listing}[H]
     \begin{minted}{java}
 class Circle {
@@ -57,13 +55,73 @@ class Circle {
     public Point circleRadius;
 }
     \end{minted}
-    \caption{Beispiel für die Verkürzung von Variablennamen anhand der Kontextes}
+    \caption{Beispiel für die Verkürzung von Variablennamen anhand des Kontextes}
     \label{paper1:contextbasednames}
+\end{listing}
+Green und Ledgard vertreten auch die These, dass besonders häufig genutzte Variablenamen sehr kurz sein sollen \ref[S. 6]{Green}, da dies mehr Klarheit schafft. Am besten sollte der Variablennamen lediglich aus einem Buchstaben bestehen.
+
+\subsection{Struktur durch Whitespaces}
+Der Quelltext soll durch Einrückung, Zeilenumbrüche und Leerzeilen strukturiert werden. Wie bereits besprochen kann man die Struktur und den Ablauf eines Programmes durch Einrückung hervorheben. Leerzeilen sollen nach \cite[S. 6f.]{Green} für die folgenden Zwecke eingesetzt werden:
+\begin{itemize}
+\item Beim Wechsel von vorbereitendem Quelltext, wie Variablendeklarationen, zu ausführenden Befehlen.
+\item Vor und nach Klassen, Methoden und Funktionen
+\item Um verschiedene logisch zusammenhängende Quelltextteile von einander abzugrenzen.
+\end{itemize}
+Ein Beispiel ist in Listing \ref{paper1:linebreaks} zu sehen. Dies ist ein Ausschnitt aus einem Lösungsansatz für das \enquote{Dining Philosophers Problem}\cite{Chandy}. Es sind drei, durch Leerzeilen getrennte Blöcke zu sehen. Es ist erkennbar, dass sich der erste Block Variablen vorbereitet, der Zweite die eigentlichen Ablauf durchführt und der Dritte die Rückgabe darstellt.
+\begin{listing}[H]
+\begin{minted}{c}
+void* philo(void *args) {
+    int *num = (int*) args;
+
+    printf("%d hello\n", *num);
+    while (1) {
+        think(*num);
+        eat(*num);
+    }
+
+    return NULL;
+}
+\end{minted}
+\label{paper1:linebreaks}
+\caption{Beispiel für den Einsatz von Leerzeilen zur Hervorhebung der Struktur}
+\end{listing}
+
+Leerzeilen können den Zusammenhang zwischen einzelnen Zeilen darstellen. Auf Ebene der Zeilen kann ein Leerzeichen verwendet werden um, dass lesen zu erleichtern und die Struktur darzustellen.
+Nach Green und Ledgrad\cite[S. 7]{Green} sollen Leerzeichen nach jedem Komma stehen, sowie vor und nach nicht unären Operatoren. Der Memberoperator \enquote{\texttt{.}} bildet die Ausnahme. Er wird ohne separierende Leerzeichen verwendet. Zwischen Variablen und unärem Operator darf kein Leerzeichen sein. Ein Beispiel dieser Regeln ist in Listing \ref{paper1:spaces} 
+
+\begin{listing}[H]
+    \begin{minted}{java}
+int i = 1;
+int j = input.get();
+i++; --j;
+return i * j;
+    \end{minted}
+    \label{paper1:spaces}
+    \caption{Beispiel Leerzeichen zur Trennung von Operationen}
+\end{listing}
+
+Zuletzt wird in \cite{Green} noch eingeräumt, dass es Sinn machen kann, wie in Listing \ref{paper1:spaces}, Zwei Befehle in eine Zeile zu schreiben.
+
+\subsection{Struktur durch Einrückung}
+Einrückung ist kann ein gutes Hilfsmittel sein um dem Leser beim verstehen von Quelltexten zu helfen. Nach \cite[S. 8]{Green} sollte bei einfachen Bedingungen die Klammerung weggelassen werden. Siehe dazu Listing \ref{paper1:withoutbraces}. Durch die Einrückung soll die Struktur deutlich werden, welcher Befehl gehört zu welcher Methode, welche Methode zu welcher Klasse, etc.
+
+\begin{listing}[H]
+    \begin{minted}{c}
+if (result >= 90)
+    cout << "Grade of A!";
+else if (result >= 80)
+    cout << "Grade of B";
+else if (result >= 70)
+    cout << "Sorry, grade of C";
+else
+    cout << "Not very good";
+    \end{minted}
+    \label{paper1:withoutbraces}
+    \caption{Beispiel für sich ausschließende Verzweigung ohne Blockklammern aus \cite[S. 8]{Green}.}
 \end{listing}
 
 
-\section{Kritik}
 
-  * Naming
-    * Zu kurze Namen
-    * zusätzlich erwähnen das pre/suffixe wie Data, Info... weggelassen werden sollten - cleancode
+Wenn man bei langen Zeilen gezwungen ist, im Befehl einen Zeilenumbruch einzufügen, wird in \cite[S. 3]{Green} vorgeschlagen, dass die zweite Zeile entweder um eine Ebene eingerückt oder ausgerückt wird.
+
+
