@@ -11,14 +11,14 @@ Als erstes wird bezug auf den Artikel von Kamp\cite{Kamp} genommen. Dieser stell
 char c1;
 c1 = getChoice();
 switch(c1) {
-	case 'q': case 'Q': quit();                 break;
-	case 'e': case 'e': enterPerson(content);   break;
-	case 'd': case 'd': delPerson(content);     break;
-	case 's': case 's': sortByName();           break;
-	case 'l': case 'l': showAll();              break;
-	case 'f': case 'f': searchByName(content);  break;
-	case default: System.out.println(
-		"--Invalid Command!!\n");
+    case 'q': case 'Q': quit();                 break;
+    case 'e': case 'e': enterPerson(content);   break;
+    case 'd': case 'd': delPerson(content);     break;
+    case 's': case 's': sortByName();           break;
+    case 'l': case 'l': showAll();              break;
+    case 'f': case 'f': searchByName(content);  break;
+    case default: System.out.println(
+        "--Invalid Command!!\n");
 }
     \end{minted}
     \caption{Beispiel für tabellarische Darstellung von Quelltext aus \cite[S. 2]{Green}}
@@ -32,14 +32,38 @@ switch(c1) {
 \subsection{Naming}
 Als nächstes wenden Sich Robert Green und Henry Ledgard der Benennung von Elementen zu\cite[S. 3f.]{Green}. Die Benennung aller Elemente ist ein wichtiges belang bei der Entwicklung. Eine Sinnvolle Benennung hilft dem Leser eines Quelltextes sich in diesem zu Orientieren. Sie stellen hierzu die folgenden Regeln auf\cite[S. 4]{Green}:
 \begin{itemize}
-	\item Variablen- und Klassennamen sollen Nomen bzw. Nominalphrasen sein
-	\item Klassennamen sind zusammenfassende Nomen (\texttt{Book})
-	\item Variablennamen sind exakte beschreibende Nomen (\texttt{BookingNumber})
-	\item Prozeduren sollten Verben bzw. Verbphrasen sein (\texttt{CalculateCost})
-	\item Wertliefernde Methoden sollen Nomen Phrasen sein (\texttt{GetName}) 
-	\item Boolesche Werte sollen Adjektive sein
-	\item Für zusammengesetzte Namen sollte man sich an die englische Sprache halten
-	\item Namen sollten aussprechbar sein
+    \item Variablen- und Klassennamen sollen Nomen bzw. Nominalphrasen sein
+    \item Klassennamen sind zusammenfassende Nomen (\texttt{Book})
+    \item Variablennamen sind exakte beschreibende Nomen (\texttt{BookingNumber})
+    \item Prozeduren sollten Verben bzw. Verbphrasen sein (\texttt{CalculateCost})
+    \item Wertliefernde Methoden sollen Nomen Phrasen sein (\texttt{GetName})
+    \item Boolesche Werte sollen Adjektive sein
+    \item Für zusammengesetzte Namen sollte man sich an die englische Sprache halten
+    \item Namen sollten aussprechbar sein
 \end{itemize}
 
-Auf diese weiße soll dem Leser zu jeder zeit klar sein, was hinter einem Namen steht. 
+Auf diese weiße soll dem Leser zu jeder zeit klar sein, ob eine Operation, eine Variable oder eine Klasse hinter einem Namen steht. Die Namen sollen in einfachem Englisch gehalten sein.
+Weiterhin sprechen sie an, dass das finden eines geeigneten Namen sehr schwierig sein kann. Ziel bei der Namensgebung soll sein, dass man aus ihnen die Konzepte der Software ablesen kann.
+
+
+\subsection{Kontextbasierte Namen}
+Bei der Namensgebung kann es sehr schnell dazu kommen, dass die Variablennamen lang werden. Um hier abhilfe zu schaffen soll der Kontext mit einbezogen werden, um die Namen kurz zu halten. In Listing \ref{paper1:contextbasednames} ist ein Beispiel mit zu langen namen zu sehen. Da sie zur Klasse \texttt{Circle} gehören, ist der \texttt{circle}-Prefix überflüssig. Die Variablen gehören klar zur \texttt{Circle}-Klasse.
+\cite[S. 4f.]{Green}
+
+\begin{listing}[H]
+    \begin{minted}{java}
+class Circle {
+    public Point circleCenter;
+    public Point circleRadius;
+}
+    \end{minted}
+    \caption{Beispiel für die Verkürzung von Variablennamen anhand der Kontextes}
+    \label{paper1:contextbasednames}
+\end{listing}
+
+
+\section{Kritik}
+
+  * Naming
+    * Zu kurze Namen
+    * zusätzlich erwähnen das pre/suffixe wie Data, Info... weggelassen werden sollten - cleancode
