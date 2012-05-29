@@ -1,0 +1,32 @@
+\section{Reading, Writing, and Code}
+Das zweite Paper, welches in dieser Arbeit behandelt wird ist \enquote{Reading, Writing, and Code} von Diomidis Spinellis\cite{Spinellis}. In diesem Abschnitt werden die wesentlichen Teile der Arbeit zusammengefasst. Das Paper beschreibt die Schwierigkeiten, Quelltext zu schreiben, der von einfach zu lesen und verstehen ist. 
+
+Spinellis geht zunächst von der Annahme aus, dass Quelltext wesentlich einfacher zu schreiben, als zu verstehen ist. Dies begründet er damit, dass es zur Lösung eins Problems viele verschiedene Lösungswege gibt. Der Autor ist sich beim Schreiben immer bewusst, welchen Weg er geht, während der Leser sich den Weg erst erschließen muss \cite[S. 85]{Spinellis}. Guter Quelltext zeichnet sich an dieser Stelle dadurch aus, dass der Leser den Gedanken des Autors gut nachvollziehen kann. Das Schreiben von gutem Quelltext nimmt aber meist mehr Zeit in Anspruch. Ferner zieht er den Schluss, dass sich guter Quelltext erst in der Zukunft, sprich bei der Wartung und Erweiterung des Quelltextes auszahlt\cite[S. 86]{Spinellis}. Hier bemängelt er auch, dass in der Lehre zu wenig auf das Schreiben von Programmen in einem realen Umfeld eingegangen wird. Es ist meist so, dass der Quelltext von einer Person, in einer Programmiersprache, für genau eine Zielplattform entwickelt wird. In einer realen Umgebung entwickelt aber mehrere Entwickler an einem Quelltext, der in verschiedenen Programmiersprachen entwickelt und auf verschiedenen Plattformen lauffähig sein muss. \cite[S. 86]{Spinellis}
+
+Nach Spinellis gehören zu den am schwersten zu verstehenden Quelltexten zum einen Systemnahe Programme, wie Datenbank Systeme, Grafikengines, Betriebssystem Kernel, etc., und zum anderen Objekt-Orientierte-Programme, die eine unangemessene abstraktionstiefe besitzen. \cite[S. 86]{Spinellis}
+
+Seine Erkenntnis ist es, dass es keinen einfachen Weg gibt, gut verständlichen Quelltext zu schreiben. Um einen solchen Quelltext zu schreiben benötig der Autor vor allem Erfahrung. Er muss wissen wie man einen Quelltext schreibt, auch mithilfe von Coding Conventions, und wann man die Coding Conventions brechen soll. \cite[S. 86]{Spinellis}
+
+\subsection{Programmiersprachen und sauberer Quelltext}
+Für Spinellis kann die Grammatik einer Programmiersprache dazu beitragen gut lesbaren Quelltext zu schreiben. Als Beispiele für diese Kategorie führt er C++, Java, Ada, und Perl an. Mit Fortran 77 lässt sich genauso guter Quelltext schreiben, es ist aber im Gegensatz zu den vorher aufgeführten Programmiersprachen aufwändiger. \cite[S. 87]{Spinellis}
+
+Dazu kommt noch das einige Sprachen, wie C++, dem Entwickler Sprachfeatures zur Verfügung stellen die den Quelltext schnell unleserlich werden lassen können, \enquote{[...]there are languages that discourage you from writing bad code through the lack of \enquote{dangerous} features, and there are languages that give you more than enough rope to hang yourself and all your code’s future maintainers.}\cite[S. 87]{Spinellis}
+
+Zu diesen Features zählt er u.a.:
+\begin{enumerate}
+\item die GoTo-Anweisung
+\item Operatorüberladung
+\item Pointer
+\item Dynamische Speicherverwaltung 
+\item C/C++ Präprozessor Makros
+\end{enumerate}
+
+Diese können den Leser mit Leichtigkeit in die Irre führen.
+
+\subsection{Kommentare}
+Kommentare sind für Spinellis ein wichtiges Werkzeug, um die Lesbarkeit eines Quelltextes zu erhöhen. Damit ein Kommentar jedoch wertvoll für den Leser wird, muss dieser klar formuliert sein. Sie können dem Leser so eine Hilfe beim verstehen des Zusammenhanges sein. Einfach die Bedeutung der nächsten Anweisung wiedergeben steigert nicht die Lesbarkeit. Zum anderen lassen sich auf diese Weiße automatisch technische Dokumentationen generieren, als Beispiel nennte er JavaDoc\footnote{s.a. http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html}. Damit die Kommentare jedoch gut genug sind muss das erstellen dieser direkt beim Schreiben des Quelltextes geschehen. Zu einem späteren Zeitpunkt erstellte Kommentare sind häufig qualitativ weniger Wert. \cite[S. 88]{Spinellis}
+
+\subsection{Vorschläge zum Schreiben von besserem Quelltext}
+Um nun als Autor einen bessere Quelltexte zu schreiben, gibt Spinellis den Rat keine IDE zu verwenden, sondern einen Texteditor, wie VIM oder EMACS. Er begründet dies damit, dass ein Entwickler, der eine IDE verwendet, nur aus der Sichtweiße seiner IDE schreibt. Einem Leser mit einer anderen IDE oder einem Texteditor, kann es so erschwert werden den Quelltext zu lesen. Zudem sollte beim Einsatz einer IDE auch sichergestellt werden, dass der Quelltext nicht in einem Binärformat abgelegt wird. Nur dann kann dieser in einem Texteditor sinnvoll angezeigt werden. Als Nebeneffekt lässt sich ein Quelltext in Textform besser in einem Versionsverwaltungssystem ablegen. \cite[S. 88]{Spinellis}
+
+
