@@ -1,7 +1,7 @@
 \section{Reading, Writing, and Code}
 Das zweite Paper, welches in dieser Arbeit behandelt wird ist \enquote{Reading, Writing, and Code} von Diomidis Spinellis\cite{Spinellis}. In diesem Abschnitt werden die wesentlichen Teile der Arbeit zusammengefasst. Das Paper beschreibt die Schwierigkeiten, Quelltext zu schreiben, der von einfach zu lesen und verstehen ist. 
 
-Spinellis geht zunächst von der Annahme aus, dass Quelltext wesentlich einfacher zu schreiben, als zu verstehen ist. Dies begründet er damit, dass es zur Lösung eins Problems viele verschiedene Lösungswege gibt. Der Autor ist sich beim Schreiben immer bewusst, welchen Weg er geht, während der Leser sich den Weg erst erschließen muss \cite[S. 85]{Spinellis}. Guter Quelltext zeichnet sich an dieser Stelle dadurch aus, dass der Leser den Gedanken des Autors gut nachvollziehen kann. Das Schreiben von gutem Quelltext nimmt aber meist mehr Zeit in Anspruch. Ferner zieht er den Schluss, dass sich guter Quelltext erst in der Zukunft, sprich bei der Wartung und Erweiterung des Quelltextes auszahlt\cite[S. 86]{Spinellis}. Hier bemängelt er auch, dass in der Lehre zu wenig auf das Schreiben von Programmen in einem realen Umfeld eingegangen wird. Es ist meist so, dass der Quelltext von einer Person, in einer Programmiersprache, für genau eine Zielplattform entwickelt wird. In einer realen Umgebung entwickelt aber mehrere Entwickler an einem Quelltext, der in verschiedenen Programmiersprachen entwickelt und auf verschiedenen Plattformen lauffähig sein muss. \cite[S. 86]{Spinellis}
+Spinellis geht zunächst von der Annahme aus, dass Quelltext wesentlich einfacher zu schreiben, als zu lesen und damit zu verstehen ist. Dies begründet er damit, dass es zur Lösung eins Problems viele verschiedene Lösungswege gibt. Der Autor ist sich beim Schreiben immer bewusst, welchen Weg er geht, während der Leser sich den Weg erst erschließen muss \cite[S. 85]{Spinellis}. Guter Quelltext zeichnet sich an dieser Stelle dadurch aus, dass der Leser den Gedanken des Autors gut nachvollziehen kann. Das Schreiben von gutem Quelltext nimmt aber meist mehr Zeit in Anspruch. Ferner zieht er den Schluss, dass sich guter Quelltext erst in der Zukunft, sprich bei der Wartung und Erweiterung des Quelltextes auszahlt\cite[S. 86]{Spinellis}. Hier bemängelt er auch, dass in der Lehre zu wenig auf das Schreiben von Programmen in einem realen Umfeld eingegangen wird. Es ist meist so, dass der Quelltext von einer Person, in einer Programmiersprache, für genau eine Zielplattform entwickelt wird. In einer realen Umgebung entwickelt aber mehrere Entwickler an einem Quelltext, der in verschiedenen Programmiersprachen entwickelt und auf verschiedenen Plattformen lauffähig sein muss. \cite[S. 86]{Spinellis}
 
 Nach Spinellis gehören zu den am schwersten zu verstehenden Quelltexten zum einen Systemnahe Programme, wie Datenbank Systeme, Grafikengines, Betriebssystem Kernel, etc., und zum anderen Objekt-Orientierte-Programme, die eine unangemessene abstraktionstiefe besitzen. \cite[S. 86]{Spinellis}
 
@@ -28,5 +28,33 @@ Kommentare sind für Spinellis ein wichtiges Werkzeug, um die Lesbarkeit eines Q
 
 \subsection{Vorschläge zum Schreiben von besserem Quelltext}
 Um nun als Autor einen bessere Quelltexte zu schreiben, gibt Spinellis den Rat keine IDE zu verwenden, sondern einen Texteditor, wie VIM oder EMACS. Er begründet dies damit, dass ein Entwickler, der eine IDE verwendet, nur aus der Sichtweiße seiner IDE schreibt. Einem Leser mit einer anderen IDE oder einem Texteditor, kann es so erschwert werden den Quelltext zu lesen. Zudem sollte beim Einsatz einer IDE auch sichergestellt werden, dass der Quelltext nicht in einem Binärformat abgelegt wird. Nur dann kann dieser in einem Texteditor sinnvoll angezeigt werden. Als Nebeneffekt lässt sich ein Quelltext in Textform besser in einem Versionsverwaltungssystem ablegen. \cite[S. 88]{Spinellis}
+
+\subsection{Bewertung}
+Spinellis Annahme, dass Quelltext schwerer zu schreiben als zu lesen ist, kann als korrekt angesehen werden. Jeder der schon einmal einen Quelltext geschrieben hat und diesen nach ein paar Jahren wieder liest wird feststellen, dass selbst das nachvollziehen der eigenen Gedanken sich schon als sehr kompliziert erweisen kann.
+
+Auch seiner Aussage, dass in der Lehre ein gut zu lesender Quelltext häufig zu kurz kommt und auch die Szenarien an denen das Programmieren gelehrt wird nicht mit der Wirklichkeit übereinstimmen. Vor allem ist es häufig so, dass man Quelltexte von Anfang an schreibt. Man muss sich nicht in den Quelltext seines Vorgängers hineinfinden. Allerdings ist es sehr schwer unerfahrenen Programmierern beizubringen einen guten Quelltext zu schreiben. Allein zum Erkennen von gutem Quelltext gehört schon einiges an Erfahrung im Programmieren, noch wesentlich mehr Erfahrung benötigt man aber selbst einen gut lesbaren Quelltext zu schreiben. Eine gute Codeing Convention kann aber hilfreich sein.
+
+Für Spinellis gehören Kommentare ganz klar zu gutem Quelltext dazu, da sie dem Leser Hinweise auf die Funktion des Quelltextes geben können. Wie Green und Ledgard ist er aber auch der Meinung, dass zu viele Kommentare hinderlich sein können. Kommentare sollten aber nur so sparsam wie möglich verwendet werden. Jeder Kommentar muss genauso gepflegt werden wie der Quelltext selber. Ein falscher Kommentar kann ggf. in die Irre führen und dem Leser ein falsches Bild des Programmes vermitteln. Ein guter Hinweis ist die automatische Generierung von technischer Dokumentation. Dies kann ein praktisches Werkzeug sein. Moderne IDEs können bei der Entwicklung wertvolle Informationen aus den Kommentaren extrahieren. Besonders aus wohl definierten Konstrukten wie JavaDoc.
+
+Eine interessante Feststellung ist, dass sich in manchen Programmiersprachen einfacher lesbarer Quelltext schreiben lässt als in anderen. Dieser lässt sich ohne weiteres zustimmen. Es gibt mittlerweile sogar Programmiersprachen, die simple Formatierung in die Grammatik einfließen lassen. Als Beispiel ist hier Python zu nennen. Es verzichtet auf Blockklammern. Wie lange ein Block ist wird durch Einrückung bestimmt. In Listing \ref{paper2:pythongrama} ist ein Beispiel zu sehen. Nur wenn der Name \enquote{Bernd} ist wird die Begrüßung \enquote{Hey Bernd} ausgegeben.
+
+\begin{listing}[H]
+    \begin{minted}{python}
+    
+name = raw_input()
+if name == "Bernd":
+    print "Hey Bernd"
+else:
+    print "Hallo " + name
+print "Lala"
+	\end{minted}
+    \label{paper2:pythongrama}
+    \caption{Beispiel von Einrückung als Teil der Gramatik mit der Programmiersprache Python}
+\end{listing}
+
+
+Auch auffällig ist, dass die Bedingung für die \enquote{\texttt{if}} Anweisung nicht geklammert ist. Des Weiteren wird nicht das Semikolon verwendet um zwei Befehle von einander zu trennen, sondern ein Zeilenumbruch. Dies hat den Effekt, dass man maximal eine Anweisung pro Zeile schreiben kann. Der Entwickler kommt somit nicht in die Versuchung zwei Anweisungen in einer Zeile auszuführen.
+
+Als Hinweis für ein besseres Gefühl für seine Leser rät Spinellis dazu, zum entwickeln lediglich einen Texteditor zu verwenden und auf keinen Fall eine IDE, die den Quelltext nicht im Klartext ablegt. Letzteres sollte auf alle Fälle vermieden werden. Mit binären Formaten ist man häufig an eine Software zum entwickeln gebunden. Dies stellt eine unnötige Abhängigkeit dar. Modernen IDEs vollständig zu entsagen ist allerdings eine schlechte Idee. Sie können dem Entwickler auf verschiedene Arten helfen sauberen Quelltext zu schreiben. Es ist zum Beispiel möglich, die Regeln einer Coding Convention in der IDE zu hinterlegen. Die IDE kann dann auf Verstöße gegen diese hinweisen.
 
 
