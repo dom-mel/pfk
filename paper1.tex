@@ -58,7 +58,7 @@ class Circle {
     \caption{Beispiel für die Verkürzung von Variablennamen anhand des Kontextes}
     \label{paper1:contextbasednames}
 \end{listing}
-Green und Ledgard vertreten auch die These, dass besonders häufig genutzte Variablenamen sehr kurz sein sollen \ref[S. 6]{Green}, da dies mehr Klarheit schafft. Am besten sollte der Variablennamen lediglich aus einem Buchstaben bestehen.
+Green und Ledgard vertreten auch die These, dass besonders häufig genutzte Variablenamen sehr kurz sein sollen \cite[S. 6]{Green}, da dies mehr Klarheit schafft. Am besten sollte der Variablennamen lediglich aus einem Buchstaben bestehen.
 
 \subsection{Struktur durch Whitespaces}
 Der Quelltext soll durch Einrückung, Zeilenumbrüche und Leerzeilen strukturiert werden. Wie bereits besprochen kann man die Struktur und den Ablauf eines Programmes durch Einrückung hervorheben. Leerzeilen sollen nach \cite[S. 6f.]{Green} für die folgenden Zwecke eingesetzt werden:
@@ -124,4 +124,26 @@ Wenn man bei langen Zeilen gezwungen ist, im Befehl einen Zeilenumbruch einzufü
 
 \subsection{Kommentare}
 Green und Ledgard schreiben, dass Kommentare mit Bedacht eingesetzt werden sollen. Das Hauptaugenmerk soll auf dem Quelltext liegen, nicht auf den Kommentaren. Der Quelltext soll so geschrieben sein, dass seine Intention klar erkennbar ist. Bei einem solchen Quelltext ist es nicht nötig viele Kommentare zu verwenden. Kommentare sollen als zusätzliches Medium für die Kommunikation zwischen Autor und Leser des Quelltextes dienen und nur dann verwendet werden wenn es nicht möglich ist den Quelltext so klar zu gestallten, dass klar zu erkennen ist was er bezweckt. \cite[S. 9]{Green}
+
+
+\subsection{Kritik}
+
+Das man eine Monospace Schriftart zum Schreiben eines Quelltextes verwendet ist keine neue Erkenntnis. Nur so lässt sich die Struktur des Quelltextes durch Einrückung darstellen. Auch tabellenartige Strukturen sind möglich. Eine Tabellenstruktur birgt aber verschiedene Nachteile. Wenn man dies auf eine \enquote{\texttt{Switch-Case}} Anweisung, wie in Listing \ref{paper1:table} anwendet und bei einer späteren Änderung des Quelltextes mehr als ein Befehl pro Zeile ausgeführt werden soll wird diese Struktur schnell sehr breit. Hinzu kommt bei allen Tabellenstrukturen, dass  Veränderungen häufig sehr schreibintensiv sind. Stelle man sich eine \enquote{\texttt{Switch-Case}} Anweisung vor, die viele verschiedene Fälle abdeckt. Fügen wir einen neuen hinzu, deren Methodenaufruf länger ist als die bereits vorhandenen Aufrufe, muss man die anderen Zeilen der Tabelle anpassen.
+
+Die Richtlinien für Variablennamen funktionieren gut. Sie erfüllen klar ihren Zweck. Lediglich eine Erwähnung wie zusammengesetzte Variablennamen zu schreiben sind fehlt. In den Beispielen wurde immer eine \enquote{CamelCase} Variante gewählt. Der Variablenname \enquote{GetName} ließe sich auch als \enquote{Get\_Name} schreiben und hat eine äquivalente Bedeutung. Wenn nun verschiedene Entwickler am Quelltext arbeiten und der eine mit unterstrichen, der andere aber mit der \enquote{CamelCase} schreibweiße arbeitet wird der Quelltext schnell inkonsistent und wirkt nicht mehr einheitlich. Damit wäre das Ziel solcher vorgaben zunichte gemacht. Die Art der Schreibweiße sollte festgelegt sein, damit diese im gesamten Quelltext einheitlich ist.
+
+Bei der Länge von Variablennamen wurde gesagt, dass diese so kurz wie möglich, bei häufig verwendeten Objekten bzw. Funktionen sogar lediglich ein Zeichen. Gute Variablennamen zu finden ist eine Kunst für sich. Ein Variablenname sollte klar wiederspiegeln was es für eine Variable ist. Für globale, häufig verwendete Elemente gilt dies besonders, aber ein einzelnes Zeichen ist nicht aussagekräftig genug. Wenn man eine Klasse erstellt die einen Vektor beschreibt sollte diese nicht \texttt{V} heißen sondern \texttt{Vector}. Namen die lediglich aus einem Zeichen bestehen sollten nur für Elemente verwendet werden, die lediglich in einem kurzen Ausschnitt des Quelltextes verwendet werden. Üblicherweise gehören hierzu Zählvariablen in Iterationen.
+
+Wie in \cite[S. 3, 6-8]{Green} gut beschrieben ist sind Zeilenumbrüche und Leerzeichen bzw. Tabs ein wichtiges Mittel um den Quelltext lesbar zu gestallten. Verzweigungen und Strukturen lassen sich durch Einrückungen verdeutlichen und logisch zusammenhängende Blöcke unterteilen. Lediglich das weglassen von Blockklammern für Anweisungen innerhalb von \enquote{\texttt{if}}-Blöcken kann sich negativ auswirken. Wenn bei Änderungen am Quelltext aus der einen Anweisung mehrere werden müssen die Blockklammern ergänzt werden, ist dabei zu verschmerzen. Es können sich so aber schnell Fehler einschleichen, die schwer zu finden sind. Wenn man beim Schreiben einer solchen  Anweisung versehentlich hinter dem \enquote{\texttt{if}} ein Semikolon einfügt, wird der Quelltext weiterhin Kompilieren und sich ausführen lassen, die Einrückung suggeriert eine Verschachtelung, die aber nicht stattfindet, weil der \enquote{\texttt{if}} Block leer ist. Beispielhaft ist dies in Listing \ref{paper1:semicolonif} zu sehen. Die Operation \enquote{\texttt{buy()}} wird immer aufgerufen.
+
+\begin{listing}[H]
+    \begin{minted}{c}
+if (action == "buy");
+    buy();
+    \end{minted}
+    \label{paper1:semicolonif}
+    \caption{Beispiel für eine fehlerhafte Verzweigung, ohne Blockklammern. \cite[S. 8]{Green}.}
+\end{listing}
+
+Bei Kommentaren im Quelltext beschreiben Green  und Ledgard richtig, dass Kommentare lediglich sparsam und mit Bedacht eingesetzt werden sollen\cite[S. 9]{Green}. Guter Quelltext sollte genau dies erfüllen. Er sollte gelesen werden können und ohne Kommentare verstanden werden. Dies gestaltet sich manchmal jedoch als schwierig. An solchen Stellen ist ein Kommentar ein legitimes Mittel um dem Leser eine Hilfe zu sein.
 
