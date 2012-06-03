@@ -60,4 +60,74 @@ Diese sollen die Lesbarkeit des Quelltextes erhöhen. Der Quelltext wirkt dadurc
 
 Um eine bessere Lesbarkeit einzelner Zeilen zu erlangen werden an bestimmten Stellen Leerzeichen eingefügt. Dieses geschieht analog zu den Vorschlägen von Green und Ledgard\cite[S. 7]{Green}. Demnach wird nach jedem Komma ein Leerzeichen eingefügt. Zudem vor und nach nicht unären Operatoren. Der Memberoperator \enquote{.} bildet ist hiervon ausgenommen. Beispiele sind in Listing \ref{paper1:spaces}, auf Seite \pageref{paper1:spaces} zu sehen.
 
+\subsection{Dateiaufbau}
+Der Name, Speicherort und Teile der Struktur sind bereits durch die Spezifikation der Java Programmiersprache vorgegeben. Der Aufbau innerhalb der Datei ist wie in Listing \ref{own:struct}  aufgebaut: Jede Datei beginnt mit der \texttt{package} Deklaration an. Danach kommen die \texttt{Import} Anweisungen. Nun beginnt der Hauptteil der Datei, die Klasse, das Interface oder ein \texttt{ENUM}. Nach dieser darf es keine weiteren Elemente mehr geben. Auch wenn es die Java Spezifikation zuließe. Weitere Konstrukt müssen in eine separate Datei gelegt werden.
+
+Die Reihenfolgen in einem Interface oder einem \texttt{Enum} sind trivial, da sie lediglich eine Art von Inhalt enthalten können. In Klassen kommen immer zuerst die Deklaration der Klassenvariablen, erst danach die Methoden und am Ende innere Klassen, Interfaces oder \texttt{Enums}.
+
+Bei den Klassenvariablen kommen zuerst die Konstanten, gefolgt von den statischen Variablen und dann erst die Objektvariablen. Zwischen diesen Einheiten müssen Leerzeilen gesetzt sein.
+
+Bei den Methoden kommen zuerst die Konstruktormethoden, gefolgt von statischen Methoden und am Ende die Objektmethoden. Die Reihenfolge der Methoden sollte so sein, dass im oberen Teil die Abstraktere und zum Ende hin immer speziellere Methoden stehen.
+
+\begin{listing}[H]
+    \begin{minted}{java}
+package my.package;
+
+import java.packet.Klasse;
+
+public class HelloWorldPrinter {
+    
+    private static final String HELLO_TEXT = "hello";
+
+    private static String lastMessage = null;
+
+    private String name;
+
+    public HelloWorldPrinter(String name) {
+        this.name = name;
+    }
+
+    public static void sayHello(String name) {
+        HelloWorldPrinter printer = new HelloWorldPrinter(name);
+        printer.sayHello();
+    }
+
+    public void sayHello() {
+        System.out.Println(HELLO_TEXT + " " + name);
+    }
+
+}
+    \end{minted}
+    \caption{Beispiel für die Struktur einer Quelltextdatei}
+    \label{own:struct}
+\end{listing}
+
+\subsection{Namensgebung}
+Die Namen für Objekte unterstehen denselben Regeln wie sie auch Green und Ledgard aufgestellt haben. Sie sind in Abschnitt \ref{paper1:naming} auf Seite \pageref{paper1:naming} beschrieben sind. Mit Ausnahme der Regel, dass globale, häufig verwendete Objekte Namen haben dürfen die lediglich aus einem Zeichen bestehen. Jedes Element soll einen Namen haben, der die Aufgabe des Elementes möglichst genau beschreibt. Damit sind in zusammengesetzten Namen, Begriffe wie Info, Data, Object, etc. zu vermeiden. Diese bieten zum einen keine weitere Information,  was die Bedeutung der Variable angeht und kann die Verständlichkeit negativ beeinflussen. In Listing \ref{own:namingmeta} sind zwei Variablendeklarationen zu sehen, anhand der Namen kann nicht unterschieden werden was der Unterschied zwischen diesen ist. Weiterhin soll bei zusammengesetzten Namen soll die \enquote{Camel Case} Schreibweise verwendet werden.
+
+\begin{listing}[H]
+    \begin{minted}{java}
+Map person = getPerson();
+Map personData = getPersonData();
+    \end{minted}
+    \caption{Beispiel für schlechte Variablennamen.}
+    \label{own:namingmeta}
+\end{listing}
+
+
+Ein weiterer wichtiger Punkt ist, dass die Variablen aussprechbar sein müssen. Das hat den Effekt, dass sich diese besser merken lassen und die mündliche Diskussion über den Quelltext zwischen den Entwicklern wird stark vereinfacht. Die Entwickler müssen sich keine umständlichen Hilfsbezeichner ausdenken.
+
+Weiterhin sollen die Namen suchbar sein. Diese Eigenschaft ist nicht für alle Namen notwendig, sollte aber für wichtige Elemente mit bedacht werden. Ein Negativbeispiel ist die Programmiersprache \enquote{Go}\footnote{s.a. http://golang.org/}. Wenn man versucht Informationen über die Programmiersprache mithilfe des Schlüsselwortes \enquote{Go} zu finden, wird man viele falsche Ergebnisse erhalten.
+
+Namen sollten immer an die Problemdomäne angelehnt sein. Die Begriffswelt sollte sich im Quelltext wiederspiegeln. Damit wird können Sprachbarrieren zwischen Fachpersonal aus der Problemdomäne und den Entwicklern verringert werden.
+
+\subsection{Kommentare}
+Kommentare sollen zusätzliche Informationen zum Quelltext anbieten. Sie sollten dabei aber nicht zu geschwätzig sein. Genauso sollen sie keine unnötigen Informationen, wie eine Liste der Änderungen o.ä. enthalten. Ebensoweit sollen sie den geschriebenen Quelltext einfach wiederholen. Dies wäre zudem eine unnötige Redundanz.
+
+In den Kommentaren darf die Lizenz der Software hinterlegt werden. Dies trägt zwar weder zur Lesbarkeit noch zur Verständlichkeit des Quelltextes bei, ist aber mitunter notwendiger Bestandteil und muss damit aufgeführt werden.
+
+Wenn Kommentare verwendet werden sollte in ihnen, z.B. der Grund für eine Architekturentscheidung Dokumentiert sein. Der Entwickler kann so die Absicht die er verfolgt deutlich machen. Es können auch Warnungen sein. Es gibt Fälle, in denen der Aufruf einer Methode ungewollte Nebenwirkungen hat. Vor solchen, sofern sie nicht offensichtlich sind, muss gewarnt werden. Sogenannte \enquote{TODOs} sind ebenfalls erlaubt. Der Entwickler kann so unfertige stellen Kennzeichnen und beschreiben was noch zu erledigen ist.
+
+Zuletzt noch die \enquote{JavaDoc} Kommentare. Sie dürfen verwendet werden. Aber auch hier gilt, diese mit Bedacht zu verwenden. Wenn die Bedeutung einer Variable oder einer Methode bereits aus ihrem Namen bzw. aus ihrer Signatur hervorgeht, kann dieser weggelassen werden. Genauso bei internen Operationen. Öffentliche Schnittstellen sollten hingegen mit \enquote{JavaDoc} Kommentaren versehen werden. Diese werden in der Regel von Entwicklern verwendet dich keinen tieferen Einblick in den Quelltext haben.
+
 
