@@ -1,0 +1,63 @@
+\section{Eigener Ansatz}
+
+In diesem Teil der Arbeit wird eine Coding Convention erstellt. Sie soll dafür sorgen, dass ein Quelltext, der von mehreren Entwicklern geschrieben wird, eine Einheitliche Form annimmt. Zudem soll durch den Einsatz der Coding Convention die Lesbarkeit und Verständlichkeit des Quelltextes gefördert werden. Als Zielprogrammiersprache wird Java verwendet. In den hier erstellten Code Conventions wird kein Wert darauf gelegt, die einzig richtige Vorlage für guten Quelltext zu sein. 
+
+
+\subsection{Formatierung}
+Zunächst einige allgemeine Festlegungen zur Formatierung des Quelltextes. Diese dienen dazu, ein einheitliches Textbild zu erhalten.
+
+Der Zeichensatz der bei der Entwicklung verwendet werden muss ist UTF-8. Dieses wird von der Programmiersprache selbst vorgegeben. Durch die Verwendung, des UTF-8 Zeichensatzes, können die meisten länderspezifischen Umlaute und Sonderzeichen abgebildet werden. Des weiteren können so Umlautfehler vermieden werden.
+
+Für die Einrückung werden vier Leerzeichen verwendet. Der Einsatz von Tabulatoren hätte den Vorteil, dass jeder Entwickler die Tiefe der Einrückung nach seinen Wünschen einstellen kann. Auf den Einsatz von Tabulatoren ist aber verzichtet worden, weil diese zu überlangen Zeilen führen können. Wenn ein Entwickler einen Quelltext schreibt und bei ihm ein Tabulator die Länge von zwei Leerzeichen hat, ist es für ihn möglich sehr viel längere Zeilen zu schreiben als ein Entwickler dessen Tabulatoren acht Leerzeichen lang sind ohne gegen die nächste Regel im bezug auf Zeilenlänge zu verstoßen.
+
+Eine Zeile sollte nicht breiter als 120 Zeichen werden. Sollte eine Zeile länger werden kann diese an geeigneter Stelle umgebrochen werden. Die Fortsetzung wird doppelt, sprich acht Leerzeichen tief, eingerückt.
+
+\subsubsection{Blöcke}
+Der Inhalt von Blockklammern wird immer eingerückt. Die öffnende Blockklammer wird immer in derselben Zeile verwendet wie die dazugehörige Anweisung. Die schließende steht für sich alleine. Optionale Blockklammern bei Bedingungen und Schleifen sind immer zu setzen. Wenn es Sinnvoll ist, können Blockklammern zur Verdeutlichung des Quelltextes eingesetzt werden. In Listing \ref{own:blockopengl}
+
+\begin{listing}[H]
+    \begin{minted}{java}
+gl.PushMatrix();
+{
+    gl.glTranslatef(width/2, height/2, 0); 
+    gl.glRotatef(a, 0, 0, 0); 
+
+    gl.glBegin(GL.GL_TRIANGLES); 
+    gl.glColor4f(0.7, 0.1, 0.7, 0.8); 
+    gl.glVertex3f(0, 0, 0); 
+    gl.glVertex3f(0, 50, 0); 
+    gl.glVertex3f(25, 0, 25); 
+    gl.glEnd(); 
+}
+gl.PopMatrix();
+    \end{minted}
+    \caption{Einsatz von Blockklammern zur Verdeutlichung der Struktur am Beispiel von OpenGL}
+    \label{own:blockopengl}
+\end{listing}
+
+
+Die Transformationsoperationen nach dem \enquote{\texttt{gl.PushMatrix}} Aufruf gelten lediglich bis zum entsprechenden nächsten \enquote{\texttt{gl.PopMatrix}} Aufruf. Da die angewandten Rotationen und Translationen lediglich zwischen den aufrufen von Bedeutung sind kann es zur Lesbarkeit beitragen diese in einen extra Block zu schreiben.
+
+\subsubsection{Zeilenumbrüche und Leerzeilen}
+Als Zeilenumbruch wird der UNIX Zeilenumbruch verwendet. Dies bedeutet lediglich ein Zeilenvorschub(\textbackslash n), ohne Wagenrücklauf(\textbackslash r).
+
+Dieser ist nach jeder öffnenden Blockklammer \enquote{\{} und jedem Semikolon zwingend. Durch diese Vorgabe wird sichergestellt, dass jede Anweisung in einer eigenen Zeile steht. Dies gilt genauso für Annotationen. Nach jeder Annotation muss ein Zeilenumbruch eingefügt werden. In \texttt{\enquote{ENUM}s} muss nach jedem Kommata ein Zeilenumbruch sein.
+
+Leerzeilen sollen dazu verwendet werden eine sichtbare Trennung zwischen logischen Blöcken zu erzeugen. Die Trennung sollte jedoch maximal aus einer Leerzeile bestehen. Daraus ergeben sich u.a. Leerzeilen an folgenden Positionen:
+
+\begin{itemize}
+\item Nach der \texttt{package} Deklaration
+\item Ggf. zwischen Importanweisungen von verschiedenen Quellen
+\item Nach den Importen
+\item Ggf. zwischen der Deklaration von Klassenvariablen
+\item Zwischen der Deklaration von Klassenvariablen und Methoden
+\item Zwischen den Methoden, inneren Klassen und inneren \enquote{\texttt{ENUM}s}
+\end{itemize}
+
+Diese sollen die Lesbarkeit des Quelltextes erhöhen. Der Quelltext wirkt dadurch weniger komprimiert. Zudem sollen die Leerzeilen logische zusammenhänge hervorheben.
+
+\subsection{Leerzeichen}
+
+Um eine bessere Lesbarkeit einzelner Zeilen zu erlangen werden an bestimmten Stellen Leerzeichen eingefügt. Dieses geschieht analog zu den Vorschlägen von Green und Ledgard\cite[S. 7]{Green}. Demnach wird nach jedem Komma ein Leerzeichen eingefügt. Zudem vor und nach nicht unären Operatoren. Der Memberoperator \enquote{.} bildet ist hiervon ausgenommen. Beispiele sind in Listing \ref{paper1:spaces}, auf Seite \pageref{paper1:spaces} zu sehen.
+
+
