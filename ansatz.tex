@@ -56,7 +56,7 @@ Leerzeilen sollen dazu verwendet werden eine sichtbare Trennung zwischen logisch
 
 Diese sollen die Lesbarkeit des Quelltextes erhöhen. Der Quelltext wirkt dadurch weniger komprimiert. Zudem sollen die Leerzeilen logische zusammenhänge hervorheben.
 
-\subsection{Leerzeichen}
+\subsubsection{Leerzeichen}
 
 Um eine bessere Lesbarkeit einzelner Zeilen zu erlangen werden an bestimmten Stellen Leerzeichen eingefügt. Dieses geschieht analog zu den Vorschlägen von Green und Ledgard\cite[S. 7]{Green}. Demnach wird nach jedem Komma ein Leerzeichen eingefügt. Zudem vor und nach nicht unären Operatoren. Der Memberoperator \enquote{.} bildet ist hiervon ausgenommen. Beispiele sind in Listing \ref{paper1:spaces}, auf Seite \pageref{paper1:spaces} zu sehen.
 
@@ -130,4 +130,89 @@ Wenn Kommentare verwendet werden sollte in ihnen, z.B. der Grund für eine Archi
 
 Zuletzt noch die \enquote{JavaDoc} Kommentare. Sie dürfen verwendet werden. Aber auch hier gilt, diese mit Bedacht zu verwenden. Wenn die Bedeutung einer Variable oder einer Methode bereits aus ihrem Namen bzw. aus ihrer Signatur hervorgeht, kann dieser weggelassen werden. Genauso bei internen Operationen. Öffentliche Schnittstellen sollten hingegen mit \enquote{JavaDoc} Kommentaren versehen werden. Diese werden in der Regel von Entwicklern verwendet dich keinen tieferen Einblick in den Quelltext haben.
 
+
+\subsection{Klassen}
+Eine Klasse soll genau einem Zweck dienen. Dieser soll möglichst klar erkennbar sein und sich im Namen der Klasse wiederspiegeln. Ggf. soll der Zweck der Klasse im JavaDoc erläutert werden. Dies soll unter dem Einsatz des Single-Responsibility-Prinzips geschehen. Das Single-Responsibility-Prinzip sagt aus, dass eine Klasse genau einen Zweck haben soll. Daraus ergibt sich, dass es nur genau einen Grund geben darf die Klasse zu ändern. \cite[S. 176f.]{Martin}
+
+Ein Hinweis auf das verletzen des Single-Responsibility-Prinzips ist es, wenn eine Klasse sehr lang wird. Sollte eine Klasse lang werden, muss darüber nachgedacht werden, ob diese möglicherweise mehrere Einsatzzwecken hat und aufgeteilt werden soll. Bei kleinen Klassen, mit lediglich einem Zweck, lässt sich dieser schnell erschließen, da sie aufgrund des geringeren Umfanges übersichtlicher ist.
+
+\subsection{Methoden}
+
+Bei Methoden wird das gleiche Ziel, wie auch bei Klassen verfolgt, sie sollen kurz und übersichtlich sein. Lange Methoden lassen sich in mehrere Kleinere zerlegen.
+
+\begin{listing}[H]
+    \begin{minted}{java}
+public Product getProductByName(String name) {
+    name = name.replace(" ", "+");
+    name = name.trim();
+    name = name.toLowercase();
+    
+    for (Product product : products) {
+        if (!product.isActive()) {
+            continue;
+        }
+        if (!name.equals(product.getName())) {
+            continue;
+        }
+        return product;
+    }
+    throw new NoResultException();
+}
+    \end{minted}
+    \caption{Lange Methode, die zwei Aufgaben erfüllt.}
+    \label{own:methodlong}
+\end{listing}
+
+Die Methode in Listing \ref{own:methodlong} sucht ein Produkt  anhand seines Namens. Dies geschieht in zwei Schritten. Zunächst wird der Parameter \texttt{name} auf die Suche vorbereitet, danach wird dieser in allen aktiven Produkten gesucht. Diese zwei Schritte können in zwei extra Methoden ausgegliedert werden. Ein mögliches Ergebnis ist in Listing \ref{own:methodshort} zu sehen. Die Methode ist stark verkürzt und man kann sehr schnell sehen, was die Methode wie erledigt.
+
+\begin{listing}[H]
+    \begin{minted}{java}
+public Product getProductByName(String name) {
+    name = prepareProductName(name);
+
+    for (Product product : products) {
+        if (isProductNameMatching(product, name)) {
+            return product;
+        }
+    }
+    throw new NoResultException();
+}
+    \end{minted}
+    \caption{Gekürzte Version des Listings \ref{own:methodlong}}
+    \label{own:methodshort}
+\end{listing}
+
+Ein weiterer wichtiger Aspekt an den Methoden ist die Parameteranzahl. Diese sollte möglichst gering sein und maximal 3 Parameter besitzen. Viele Parameter sind häufig ein Anzeichen dafür, dass eine Methode zu viele Aufgaben erledigt. Hier soll erwähnt sein, dass der Einsatz von Datenobjekten ausdrücklich erlaubt ist.
+
+\enquote{Flag}-Parameter, die das Verhalten einer Methode beeinflussen sind nicht erlaubt. Sie schaden der Lesbarkeit des Quelltextes. In Listing \ref{own:flag} ist ein Methodenaufruf zu sehen. Dabei ist die Bedeutung des übergebenen Parameters nicht erkennbar. Besser ist es in einem solchen Fall zwei Methoden zu schreiben. Eine die das Verhalten mit gesetztem Flag, eine ohne abbildet. Der Name der Methode muss dieses Verhalten natürlich wiederspiegeln.
+
+\begin{listing}[H]
+    \begin{minted}{java}
+item.publish(true);
+    \end{minted}
+    \caption{Beispiel für einen \enquote{Flag}-Parameter}
+    \label{own:flag}
+\end{listing}
+
+Die verschachtelungstiefe kann ein weiterer Anhaltspunkt für zu komplexe, schwer zu lesende Methoden sein. Wenn eine Methode tief verschachtelt ist, zeugt dies von einer höheren Komplexität als flache Methoden, was sich u.a. in der zyklomatischen Komplexität wiederspiegelt\cite{McCabe}. Es gibt verschiedene Verfahren um die verschachtelungstiefe gering zu halten. Die offensichtlichste ist es, den Quelltext in verschiedene Methoden aufzuteilen. Eine andere Möglichkeit ist es in geeigneten Fällen, eine frühe Rückkehr aus der Methode zu verwenden. Listing \ref{own:lowindent} zeigt wie dies anhand von Validierungsoperationen. Sobald ein Fehler erkannt bemerkt wurde, wird die Methode sofort verlassen.
+
+\begin{listing}[H]
+    \begin{minted}{java}
+void print(String text) {
+    if (text == null) {
+        return;
+    }
+    if (text.isEmpty()) {
+        return;
+    }
+    System.out.Println(text);
+}
+    \end{minted}
+    \caption{Beispiel für das frühzeitige verlassen einer Methode um eine niedrige Verschachtelungstiefe zu erhalten.}
+    \label{own:lowindent}
+\end{listing}
+
+\subsection{Fehlerbehandlung}
+\subsection{Magic Strings}
+\subsection{Unit tests}
 
