@@ -213,6 +213,60 @@ void print(String text) {
 \end{listing}
 
 \subsection{Fehlerbehandlung}
-\subsection{Magic Strings}
-\subsection{Unit tests}
+Bei der Fehlerbehandlung sind Exceptions zu verwenden. Die Rückgabe von Fehlercodes oder \texttt{NULL} werten ist verboten. Fehlercodes und \texttt{NULL} werte bieten keinen Vorteil gegenüber von Exceptions, welche genau für den Ausnahmefall entworfen sind. 
+
+In Listing \ref{own:methodnull} ist der Aufruf ein Methodenaufruf zu sehen, der einen \texttt{NULL} wert zurückgibt, in Listing \ref{own:methodexception} anstelle von \texttt{NULL} eine Exception geworfen.
+
+\begin{listing}[H]
+    \begin{minted}{java}
+List<Product> products = getProducts();
+if (products == null) {
+     // handle
+}
+    \end{minted}
+    \caption{Methodenaufruf mit \texttt{NULL} Rückgabewert}
+    \label{own:methodnull}
+\end{listing}
+
+\begin{listing}[H]
+    \begin{minted}{java}
+try {
+    List<Product> products = getProducts();
+} catch (EmptyResultException exception) {
+    // handle
+}
+    \end{minted}
+    \caption{Methodenaufruf mit Exception}
+    \label{own:methodexception}
+\end{listing}
+
+Die Methodenaufrufe ähneln einander zwar, aber im Listing \ref{own:methodexception} wird dem Leser erst deutlich gemacht was passiert. Am Namen der Exception ist klar zu erkennen welche Ausnahme an dieser Stelle behandelt wird, nämlich das es keine Produkte gibt. In Listing \ref{own:methodnull} ist nicht zu erkennen was schief gelaufen ist, sprich weshalb die Methode kein Ergebnis liefert.
+
+\subsection{Magic-Strings and Numbers}
+Magic –Strings sind feste Zeichenketten bzw. Zeichen, welche fest in den Quelltext eingebaut sind. Solche Werte werden häufig für bestimmte Zustände verwendet. Listing \ref{own:magicstrings} zeigt einige Beispiele.
+
+\begin{listing}[H]
+    \begin{minted}{java}
+search(searchString, 3);        
+call("GET", document);
+respones(404);
+    \end{minted}
+    \caption{Beispiel für Magic-Strings}
+    \label{own:magicstrings}
+\end{listing}
+
+
+Die Bedeutung der festen Werte wird dem Leser nicht deutlich gemacht. Was bedeutet die \enquote{3} in der \texttt{search} Methode? Es ist nicht ersichtlich welchen Einfluss dieser Wert auf die Ausführung nimmt. Für solche Fälle müssen Konstanten mit entsprechenden Namen erzeugt werden. Dies bietet gleich zwei Vorteile. Erstens wird der konstante wert nur einmal im Quelltext verwendet, an der Stelle an der die Konstante deklariert wird, dadurch lassen sich spätere Änderungen leicht durchführen. Zweitens kann der Leser nun erkennen was an die Methoden übergeben wird und sich ihre Bedeutung erschließen. In Listing \ref{own:magicstringsconst} sind die werte durch Konstanten getauscht.
+
+\begin{listing}[H]
+    \begin{minted}{java}
+search(searchString, SearchParameter.TO_LOWER_CASE);
+call(Http.GET, document);
+respones(HttpCodes.PAGE_NOT_FOUND);
+    \end{minted}
+    \caption{Magic-Strings durch konstanten ersetzen}
+    \label{own:magicstringsconst}
+\end{listing}
+
+
 
