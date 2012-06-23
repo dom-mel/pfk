@@ -25,10 +25,6 @@ switch(c1) {
     \label{paper1:table}
 \end{listing}
 
-
-
-\ref{grundlagen:namensgebung}
-
 \subsection{Naming}
 \label{paper1:naming}
 Als nächstes wenden Sich Robert Green und Henry Ledgard der Benennung von Elementen zu\cite[S. 3f.]{Green}. Die Benennung aller Elemente ist ein wichtiges belang bei der Entwicklung. Eine Sinnvolle Benennung hilft dem Leser eines Quelltextes sich in diesem zu Orientieren. Sie stellen hierzu die folgenden Regeln auf\cite[S. 4]{Green}:
@@ -87,7 +83,7 @@ void* philo(void *args) {
 \caption{Beispiel für den Einsatz von Leerzeilen zur Hervorhebung der Struktur}
 \end{listing}
 
-Leerzeilen können den Zusammenhang zwischen einzelnen Zeilen darstellen. Auf Ebene der Zeilen kann ein Leerzeichen verwendet werden um, dass lesen zu erleichtern und die Struktur darzustellen.
+Leerzeilen können verschiedene logische Konstrukte voneinander abgrenzen. Auf Ebene der Zeilen kann ein Leerzeichen verwendet werden um, dass lesen zu erleichtern und die Struktur darzustellen.
 Nach Green und Ledgrad\cite[S. 7]{Green} sollen Leerzeichen nach jedem Komma stehen, sowie vor und nach nicht unären Operatoren. Der Memberoperator \enquote{\texttt{.}} bildet die Ausnahme. Er wird ohne separierende Leerzeichen verwendet. Zwischen Variablen und unärem Operator darf kein Leerzeichen sein. Ein Beispiel dieser Regeln ist in Listing \ref{paper1:spaces} 
 
 \begin{listing}[H]
@@ -104,7 +100,7 @@ return i * j;
 Zuletzt wird in \cite{Green} noch eingeräumt, dass es Sinn machen kann, wie in Listing \ref{paper1:spaces}, Zwei Befehle in eine Zeile zu schreiben.
 
 \subsection{Struktur durch Einrückung}
-Einrückung ist kann ein gutes Hilfsmittel sein um dem Leser beim verstehen von Quelltexten zu helfen. Nach \cite[S. 8]{Green} sollte bei einfachen Bedingungen die Klammerung weggelassen werden. Siehe dazu Listing \ref{paper1:withoutbraces}. Durch die Einrückung soll die Struktur deutlich werden, welcher Befehl gehört zu welcher Methode, welche Methode zu welcher Klasse, etc.
+Einrückung kann ein gutes Hilfsmittel sein um dem Leser beim verstehen von Quelltexten zu helfen. Nach \cite[S. 8]{Green} sollte bei einfachen Bedingungen die Klammerung weggelassen werden. Siehe dazu Listing \ref{paper1:withoutbraces}. Durch die Einrückung soll die Struktur deutlich werden, welcher Befehl gehört zu welcher Methode, welche Methode zu welcher Klasse, etc.
 
 \begin{listing}[H]
     \begin{minted}{c}
@@ -135,7 +131,7 @@ Die Richtlinien für Variablennamen funktionieren gut. Sie erfüllen klar ihren 
 
 Bei der Länge von Variablennamen wurde gesagt, dass diese so kurz wie möglich, bei häufig verwendeten Objekten bzw. Funktionen sogar lediglich ein Zeichen. Gute Variablennamen zu finden ist eine Kunst für sich. Ein Variablenname sollte klar wiederspiegeln was es für eine Variable ist. Für globale, häufig verwendete Elemente gilt dies besonders, aber ein einzelnes Zeichen ist nicht aussagekräftig genug. Wenn man eine Klasse erstellt die einen Vektor beschreibt sollte diese nicht \texttt{V} heißen sondern \texttt{Vector}. Namen die lediglich aus einem Zeichen bestehen sollten nur für Elemente verwendet werden, die lediglich in einem kurzen Ausschnitt des Quelltextes verwendet werden. Üblicherweise gehören hierzu Zählvariablen in Iterationen.
 
-Wie in \cite[S. 3, 6-8]{Green} gut beschrieben ist sind Zeilenumbrüche und Leerzeichen bzw. Tabs ein wichtiges Mittel um den Quelltext lesbar zu gestallten. Verzweigungen und Strukturen lassen sich durch Einrückungen verdeutlichen und logisch zusammenhängende Blöcke unterteilen. Lediglich das weglassen von Blockklammern für Anweisungen innerhalb von \enquote{\texttt{if}}-Blöcken kann sich negativ auswirken. Wenn bei Änderungen am Quelltext aus der einen Anweisung mehrere werden müssen die Blockklammern ergänzt werden, ist dabei zu verschmerzen. Es können sich so aber schnell Fehler einschleichen, die schwer zu finden sind. Wenn man beim Schreiben einer solchen  Anweisung versehentlich hinter dem \enquote{\texttt{if}} ein Semikolon einfügt, wird der Quelltext weiterhin Kompilieren und sich ausführen lassen, die Einrückung suggeriert eine Verschachtelung, die aber nicht stattfindet, weil der \enquote{\texttt{if}} Block leer ist. Beispielhaft ist dies in Listing \ref{paper1:semicolonif} zu sehen. Die Operation \enquote{\texttt{buy()}} wird immer aufgerufen.
+Wie in \cite[S. 3, 6-8]{Green} gut beschrieben ist sind Zeilenumbrüche und Leerzeichen bzw. Tabulatoren ein wichtiges Mittel um den Quelltext lesbar zu gestallten. Verzweigungen und Strukturen lassen sich durch Einrückungen verdeutlichen und logisch zusammenhängende Blöcke unterteilen. Lediglich das weglassen von Blockklammern für Anweisungen innerhalb von \enquote{\texttt{if}}-Blöcken kann sich negativ auswirken. Wenn bei Änderungen am Quelltext aus der einen Anweisung mehrere werden müssen die Blockklammern ergänzt werden, ist dabei zu verschmerzen. Es können sich so aber schnell Fehler einschleichen, die schwer zu finden sind. Wenn man beim Schreiben einer solchen  Anweisung versehentlich hinter dem \enquote{\texttt{if}} ein Semikolon einfügt, wird der Quelltext weiterhin Kompilieren und sich ausführen lassen, die Einrückung suggeriert eine Verschachtelung, die aber nicht stattfindet, weil der \enquote{\texttt{if}} Block leer ist. Beispielhaft ist dies in Listing \ref{paper1:semicolonif} zu sehen. Die Operation \enquote{\texttt{buy()}} wird immer aufgerufen.
 
 \begin{listing}[H]
     \begin{minted}{c}

@@ -13,7 +13,7 @@ Für die Einrückung werden vier Leerzeichen verwendet. Der Einsatz von Tabulato
 Eine Zeile sollte nicht breiter als 120 Zeichen werden. Sollte eine Zeile länger werden kann diese an geeigneter Stelle umgebrochen werden. Die Fortsetzung wird doppelt, sprich acht Leerzeichen tief, eingerückt.
 
 \subsubsection{Blöcke}
-Der Inhalt von Blockklammern wird immer eingerückt. Die öffnende Blockklammer wird immer in derselben Zeile verwendet wie die dazugehörige Anweisung. Die schließende steht für sich alleine. Optionale Blockklammern bei Bedingungen und Schleifen sind immer zu setzen. Wenn es Sinnvoll ist, können Blockklammern zur Verdeutlichung des Quelltextes eingesetzt werden. In Listing \ref{own:blockopengl}
+Der Inhalt von Blockklammern wird immer eingerückt. Die öffnende Blockklammer wird immer in derselben Zeile verwendet wie die dazugehörige Anweisung. Die schließende steht für sich alleine. Optionale Blockklammern bei Bedingungen und Schleifen sind immer zu setzen. Wenn es Sinnvoll ist, können Blockklammern zur Verdeutlichung des Quelltextes eingesetzt werden. In Listing \ref{own:blockopengl} ist ein Beispiel dazu zu sehen.
 
 \begin{listing}[H]
     \begin{minted}{java}
@@ -61,7 +61,7 @@ Diese sollen die Lesbarkeit des Quelltextes erhöhen. Der Quelltext wirkt dadurc
 Um eine bessere Lesbarkeit einzelner Zeilen zu erlangen werden an bestimmten Stellen Leerzeichen eingefügt. Dieses geschieht analog zu den Vorschlägen von Green und Ledgard\cite[S. 7]{Green}. Demnach wird nach jedem Komma ein Leerzeichen eingefügt. Zudem vor und nach nicht unären Operatoren. Der Memberoperator \enquote{.} bildet ist hiervon ausgenommen. Beispiele sind in Listing \ref{paper1:spaces}, auf Seite \pageref{paper1:spaces} zu sehen.
 
 \subsection{Dateiaufbau}
-Der Name, Speicherort und Teile der Struktur sind bereits durch die Spezifikation der Java Programmiersprache vorgegeben. Der Aufbau innerhalb der Datei ist wie in Listing \ref{own:struct}  aufgebaut: Jede Datei beginnt mit der \texttt{package} Deklaration an. Danach kommen die \texttt{Import} Anweisungen. Nun beginnt der Hauptteil der Datei, die Klasse, das Interface oder ein \texttt{ENUM}. Nach dieser darf es keine weiteren Elemente mehr geben. Auch wenn es die Java Spezifikation zuließe. Weitere Konstrukt müssen in eine separate Datei gelegt werden.
+Der Name, Speicherort und Teile der Struktur sind bereits durch die Spezifikation der Java Programmiersprache vorgegeben. Der Aufbau innerhalb der Datei ist wie in Listing \ref{own:struct}  aufgebaut: Jede Datei beginnt mit der \texttt{package} Deklaration. Danach kommen die \texttt{Import} Anweisungen. Nun beginnt der Hauptteil der Datei, die Klasse, das Interface oder ein \texttt{ENUM}. Nach dieser darf es keine weiteren Elemente mehr geben. Auch wenn es die Java Spezifikation zuließe. Weitere Konstrukte müssen in eine separate Datei gelegt werden.
 
 Die Reihenfolgen in einem Interface oder einem \texttt{Enum} sind trivial, da sie lediglich eine Art von Inhalt enthalten können. In Klassen kommen immer zuerst die Deklaration der Klassenvariablen, erst danach die Methoden und am Ende innere Klassen, Interfaces oder \texttt{Enums}.
 
@@ -103,7 +103,7 @@ public class HelloWorldPrinter {
 \end{listing}
 
 \subsection{Namensgebung}
-Die Namen für Objekte unterstehen denselben Regeln wie sie auch Green und Ledgard aufgestellt haben. Sie sind in Abschnitt \ref{paper1:naming} auf Seite \pageref{paper1:naming} beschrieben sind. Mit Ausnahme der Regel, dass globale, häufig verwendete Objekte Namen haben dürfen die lediglich aus einem Zeichen bestehen. Jedes Element soll einen Namen haben, der die Aufgabe des Elementes möglichst genau beschreibt. Damit sind in zusammengesetzten Namen, Begriffe wie Info, Data, Object, etc. zu vermeiden. Diese bieten zum einen keine weitere Information,  was die Bedeutung der Variable angeht und kann die Verständlichkeit negativ beeinflussen. In Listing \ref{own:namingmeta} sind zwei Variablendeklarationen zu sehen, anhand der Namen kann nicht unterschieden werden was der Unterschied zwischen diesen ist. Weiterhin soll bei zusammengesetzten Namen soll die \enquote{Camel Case} Schreibweise verwendet werden.
+Die Namen für Objekte unterstehen denselben Regeln wie sie auch Green und Ledgard aufgestellt haben. Sie sind in Abschnitt \ref{paper1:naming} auf Seite \pageref{paper1:naming} beschrieben. Mit Ausnahme der Regel, dass globale, häufig verwendete Objekte Namen haben dürfen die lediglich aus einem Zeichen bestehen. Jedes Element soll einen Namen haben, der die Aufgabe des Elementes möglichst genau beschreibt. Damit sind in zusammengesetzten Namen, Begriffe wie Info, Data, Object, etc. zu vermeiden. Diese bieten zum einen keine weitere Information,  was die Bedeutung der Variable angeht und kann die Verständlichkeit negativ beeinflussen. In Listing \ref{own:namingmeta} sind zwei Variablendeklarationen zu sehen, anhand der Namen kann nicht unterschieden werden was der Unterschied zwischen diesen ist. Weiterhin soll bei zusammengesetzten Namen soll die \enquote{Camel Case} Schreibweise verwendet werden.
 
 \begin{listing}[H]
     \begin{minted}{java}
@@ -115,11 +115,11 @@ Map personData = getPersonData();
 \end{listing}
 
 
-Ein weiterer wichtiger Punkt ist, dass die Variablen aussprechbar sein müssen. Das hat den Effekt, dass sich diese besser merken lassen und die mündliche Diskussion über den Quelltext zwischen den Entwicklern wird stark vereinfacht. Die Entwickler müssen sich keine umständlichen Hilfsbezeichner ausdenken.
+Ein weiterer wichtiger Punkt ist, dass alle Namen aussprechbar sein müssen. Das hat den Effekt, dass sich diese besser merken lassen und die mündliche Diskussion über den Quelltext zwischen den Entwicklern vereinfacht. Die Entwickler müssen sich keine umständlichen Hilfsbezeichner ausdenken.
 
 Weiterhin sollen die Namen suchbar sein. Diese Eigenschaft ist nicht für alle Namen notwendig, sollte aber für wichtige Elemente mit bedacht werden. Ein Negativbeispiel ist die Programmiersprache \enquote{Go}\footnote{s.a. http://golang.org/}. Wenn man versucht Informationen über die Programmiersprache mithilfe des Schlüsselwortes \enquote{Go} zu finden, wird man viele falsche Ergebnisse erhalten.
 
-Namen sollten immer an die Problemdomäne angelehnt sein. Die Begriffswelt sollte sich im Quelltext wiederspiegeln. Damit wird können Sprachbarrieren zwischen Fachpersonal aus der Problemdomäne und den Entwicklern verringert werden.
+Namen sollten immer an die Problemdomäne angelehnt sein. Die Begriffswelt sollte sich im Quelltext wiederspiegeln. Damit können Sprachbarrieren zwischen Fachpersonal aus der Problemdomäne und den Entwicklern verringert werden.
 
 \subsection{Kommentare}
 Kommentare sollen zusätzliche Informationen zum Quelltext anbieten. Sie sollten dabei aber nicht zu geschwätzig sein. Genauso sollen sie keine unnötigen Informationen, wie eine Liste der Änderungen o.ä. enthalten. Ebensoweit sollen sie den geschriebenen Quelltext einfach wiederholen. Dies wäre zudem eine unnötige Redundanz.
@@ -213,7 +213,7 @@ void print(String text) {
 \end{listing}
 
 \subsection{Fehlerbehandlung}
-Bei der Fehlerbehandlung sind Exceptions zu verwenden. Die Rückgabe von Fehlercodes oder \texttt{NULL} werten ist verboten. Fehlercodes und \texttt{NULL} werte bieten keinen Vorteil gegenüber von Exceptions, welche genau für den Ausnahmefall entworfen sind. 
+Bei der Fehlerbehandlung sind Exceptions zu verwenden. Die Rückgabe von Fehlercodes oder \texttt{NULL} werten ist verboten. Fehlercodes und \texttt{NULL} Werte bieten keinen Vorteil gegenüber von Exceptions, welche genau für den Ausnahmefall entworfen sind. 
 
 In Listing \ref{own:methodnull} ist der Aufruf ein Methodenaufruf zu sehen, der einen \texttt{NULL} wert zurückgibt, in Listing \ref{own:methodexception} anstelle von \texttt{NULL} eine Exception geworfen.
 
